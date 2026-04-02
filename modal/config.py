@@ -91,6 +91,7 @@ CHROMA_HOP_LENGTH = 512      # librosa chroma_cqt hop length
 base_image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
+        "fastapi[standard]",
         "torch==2.2.1",
         "torchaudio==2.2.1",
         "numpy==1.26.4",
@@ -128,11 +129,15 @@ whisper_image = (
     modal.Image.debian_slim(python_version="3.11")
     .apt_install("ffmpeg")
     .pip_install(
-        "openai-whisper==20240930",
-        "sentence-transformers==2.3.1",
+        "setuptools",
+        "fastapi[standard]",
         "torch==2.1.2",
         "numpy==1.26.4",
         "requests==2.31.0",
+        "sentence-transformers==2.3.1",
+    )
+    .run_commands(
+        "pip install --no-build-isolation openai-whisper==20240930",
     )
     .env({"CUBLAS_WORKSPACE_CONFIG": CUBLAS_WORKSPACE_CONFIG})
 )
@@ -141,6 +146,7 @@ fingerprint_image = (
     modal.Image.debian_slim(python_version="3.11")
     .apt_install("libchromaprint-tools", "libchromaprint-dev", "ffmpeg")
     .pip_install(
+        "fastapi[standard]",
         "pyacoustid==1.3.0",
         "requests==2.31.0",
         "numpy==1.26.4",
@@ -178,6 +184,7 @@ pdf_render_image = (
         "apt-get update && apt-get install -y google-chrome-stable",
     )
     .pip_install(
+        "fastapi[standard]",
         "pyppeteer==2.0.0",
         "requests==2.31.0",
     )
