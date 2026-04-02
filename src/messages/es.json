@@ -1589,5 +1589,68 @@
       "funk": "Funk / Disco",
       "kpop": "K-Pop / J-Pop"
     }
+  },
+
+  "litigation": {
+    "title": "Evaluacion de Riesgo Litigioso",
+    "subtitle": "Analisis de jurisprudencia generado por IA basado en datos forenses",
+    "risk": {
+      "low": "RIESGO BAJO",
+      "moderate": "RIESGO MODERADO",
+      "high": "RIESGO ALTO",
+      "very_high": "RIESGO MUY ALTO"
+    },
+    "precedent": {
+      "title": "Precedente Mas Similar",
+      "ruling": "Fallo",
+      "additional": "Precedentes Adicionales"
+    },
+    "arnstein": {
+      "title": "Analisis del Test de Arnstein",
+      "extrinsic": "Test Extrinseco (Diseccion Analitica)",
+      "intrinsic": "Test Intrinseco (Oyente Ordinario)",
+      "conclusion": "Conclusion"
+    },
+    "strengths": {
+      "title": "Factores a Favor de Infraccion"
+    },
+    "weaknesses": {
+      "title": "Factores en Contra de Infraccion"
+    },
+    "defenses": {
+      "title": "Defensas Potenciales",
+      "applicability": {
+        "strong": "Fuerte",
+        "moderate": "Moderada",
+        "weak": "Debil"
+      }
+    },
+    "recommendations": {
+      "title": "Recomendaciones"
+    },
+    "confidence": {
+      "title": "Confianza de la Evaluacion",
+      "high": "ALTA",
+      "medium": "MEDIA",
+      "low": "BAJA"
+    },
+    "regenerate": "Regenerar Evaluacion",
+    "disclaimer": "Esta evaluacion es generada por un sistema de IA y proporciona una valoracion tecnico-legal basada en precedentes jurisprudenciales. No constituye asesoramiento legal. Consulte con un abogado calificado para opiniones legales definitivas."
+  },
+
+  "analysisChat": {
+    "fab": "Preguntar a Probatio",
+    "title": "Preguntar a Probatio",
+    "welcome": "Puedo responder preguntas sobre este analisis. Intenta preguntar:",
+    "you": "Tu",
+    "analyzing": "Analizando...",
+    "retry": "Reintentar",
+    "placeholder": "Pregunta sobre este analisis...",
+    "poweredBy": "Funcion Pro \u00b7 Impulsado por Claude",
+    "planGate": {
+      "title": "El Q&A con IA requiere un plan Profesional",
+      "description": "Actualiza para hacer preguntas sobre tus resultados de analisis, obtener sugerencias de remediacion y entender las implicaciones legales.",
+      "upgrade": "Actualizar a Pro"
+    }
   }
 }

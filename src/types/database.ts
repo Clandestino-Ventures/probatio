@@ -204,6 +204,7 @@ export interface AnalysisRow {
   monitoring_enabled: boolean;
   last_monitored_at: string | null;
   monitoring_catalog_ids: string[] | null;
+  litigation_assessment: Record<string, unknown> | null;
   clearance_status: string | null;
   audio_expires_at: string | null;
   audio_deleted_at: string | null;
@@ -251,6 +252,7 @@ export interface AnalysisInsert {
   monitoring_enabled?: boolean;
   last_monitored_at?: string | null;
   monitoring_catalog_ids?: string[] | null;
+  litigation_assessment?: Record<string, unknown> | null;
   clearance_status?: string | null;
   audio_expires_at?: string | null;
   audio_deleted_at?: string | null;

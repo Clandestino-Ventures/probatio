@@ -68,6 +68,32 @@ export interface PDFReportData {
   heatmapImages?: Record<string, string> | null;
   /** Piano roll PNG as data URL for melody dimension page. */
   pianoRollImage?: string | null;
+  /** AI-generated litigation risk assessment. */
+  litigationAssessment?: {
+    overallRisk: string;
+    litigationProbability: string;
+    mostSimilarPrecedent: {
+      name: string;
+      citation: string;
+      ruling: string;
+      whySimilar: string;
+    };
+    arnsteinAnalysis: {
+      extrinsicTest: string;
+      intrinsicTest: string;
+      conclusion: string;
+    };
+    strengths: string[];
+    weaknesses: string[];
+    potentialDefenses: Array<{
+      defense: string;
+      applicability: string;
+      explanation: string;
+    }>;
+    recommendations: string[];
+    assessmentConfidence: string;
+    confidenceReason: string;
+  } | null;
   report: {
     executiveSummary: string;
     methodology: string;
@@ -577,10 +603,70 @@ function ProbatioReport({ data }: { data: PDFReportData }) {
         </Page>
       )}
 
-      {/* ═══ PAGE 10: RISK ASSESSMENT ════════════════════ */}
+      {/* ═══ PAGE 10: RISK ASSESSMENT + LITIGATION ═══════ */}
       <Page size="A4" style={styles.page}>
         <Text style={styles.sectionTitle}>Risk Assessment</Text>
         <Text style={styles.body}>{data.report.riskAssessment}</Text>
+
+        {data.litigationAssessment && (
+          <>
+            <Text style={styles.sectionTitle}>Litigation Risk Assessment</Text>
+            <View style={[styles.riskBadge, { backgroundColor: data.litigationAssessment.overallRisk === "very_high" ? C.red : data.litigationAssessment.overallRisk === "high" ? C.orange : data.litigationAssessment.overallRisk === "moderate" ? C.amber : C.green, alignSelf: "flex-start", marginBottom: 8 }]}>
+              <Text style={styles.riskText}>RISK: {data.litigationAssessment.overallRisk.toUpperCase().replace("_", " ")}{"  "}PROBABILITY: {data.litigationAssessment.litigationProbability}</Text>
+            </View>
+
+            <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 6, marginBottom: 4 }}>MOST SIMILAR PRECEDENT</Text>
+            <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold" }}>{data.litigationAssessment.mostSimilarPrecedent.name}</Text>
+            <Text style={{ ...styles.hashText, marginBottom: 4 }}>{data.litigationAssessment.mostSimilarPrecedent.citation}</Text>
+            <Text style={{ ...styles.body, fontSize: 9 }}>{data.litigationAssessment.mostSimilarPrecedent.whySimilar}</Text>
+
+            <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>ARNSTEIN TEST APPLICATION</Text>
+            <Text style={{ ...styles.body, fontSize: 9 }}>Extrinsic: {data.litigationAssessment.arnsteinAnalysis.extrinsicTest}</Text>
+            <Text style={{ ...styles.body, fontSize: 9 }}>Intrinsic: {data.litigationAssessment.arnsteinAnalysis.intrinsicTest}</Text>
+            <Text style={{ ...styles.body, fontSize: 9, fontFamily: "Helvetica-Bold" }}>Conclusion: {data.litigationAssessment.arnsteinAnalysis.conclusion}</Text>
+
+            {data.litigationAssessment.strengths.length > 0 && (
+              <>
+                <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>FACTORS SUPPORTING INFRINGEMENT</Text>
+                {data.litigationAssessment.strengths.map((s, i) => (
+                  <Text key={i} style={styles.bullet}>{i + 1}. {s}</Text>
+                ))}
+              </>
+            )}
+
+            {data.litigationAssessment.weaknesses.length > 0 && (
+              <>
+                <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>FACTORS AGAINST INFRINGEMENT</Text>
+                {data.litigationAssessment.weaknesses.map((w, i) => (
+                  <Text key={i} style={styles.bullet}>{i + 1}. {w}</Text>
+                ))}
+              </>
+            )}
+
+            {data.litigationAssessment.potentialDefenses.length > 0 && (
+              <>
+                <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>POTENTIAL DEFENSES</Text>
+                {data.litigationAssessment.potentialDefenses.map((d, i) => (
+                  <Text key={i} style={styles.bullet}>{i + 1}. {d.defense} (Applicability: {d.applicability}) {"\u2014"} {d.explanation}</Text>
+                ))}
+              </>
+            )}
+
+            {data.litigationAssessment.recommendations.length > 0 && (
+              <>
+                <Text style={{ ...styles.body, fontFamily: "Helvetica-Bold", fontSize: 9, color: C.muted, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>RECOMMENDATIONS</Text>
+                {data.litigationAssessment.recommendations.map((r, i) => (
+                  <Text key={i} style={styles.bullet}>{i + 1}. {r}</Text>
+                ))}
+              </>
+            )}
+
+            <View style={{ marginTop: 10, padding: 8, backgroundColor: C.bg, borderWidth: 0.5, borderColor: C.border, borderRadius: 3 }}>
+              <Text style={{ fontSize: 7, color: C.muted, lineHeight: 1.5 }}>Note: This assessment is generated by an AI system and provides a technical-legal risk evaluation based on case law precedent. It does not constitute legal advice. Consult qualified legal counsel for definitive legal opinions. Assessment Confidence: {data.litigationAssessment.assessmentConfidence.toUpperCase()} {"\u2014"} {data.litigationAssessment.confidenceReason}</Text>
+            </View>
+          </>
+        )}
+
         <Text style={styles.sectionTitle}>Recommendations</Text>
         <Text style={styles.body}>{data.report.recommendations}</Text>
         <Text style={styles.sectionTitle}>Limitations</Text>

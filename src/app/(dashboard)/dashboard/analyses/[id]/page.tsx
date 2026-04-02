@@ -38,6 +38,14 @@ const ReproductionCard = dynamic(
   () => import("@/components/analysis/reproduction-card").then(m => ({ default: m.ReproductionCard })),
   { ssr: false }
 );
+const LitigationAssessmentCard = dynamic(
+  () => import("@/components/analysis/litigation-assessment-card").then(m => ({ default: m.LitigationAssessmentCard })),
+  { ssr: false }
+);
+const AnalysisChat = dynamic(
+  () => import("@/components/analysis/analysis-chat").then(m => ({ default: m.AnalysisChat })),
+  { ssr: false }
+);
 
 const riskVariantMap: Record<string, "risk-low" | "risk-medium" | "risk-high" | "risk-critical"> = {
   low: "risk-low",
@@ -95,6 +103,7 @@ export default function AnalysisDetailPage() {
   } = useAnalysisStore();
 
   const [catalogNames, setCatalogNames] = useState<CatalogInfo[]>([]);
+  const [planTier, setPlanTier] = useState<"free" | "starter" | "professional" | "enterprise">("free");
   const [catalogsLoading, setCatalogsLoading] = useState(false);
 
   // Build demo analysis row if in demo mode and id starts with "demo-"
@@ -148,6 +157,7 @@ export default function AnalysisDetailPage() {
         monitoring_enabled: false,
         last_monitored_at: null,
         monitoring_catalog_ids: null,
+        litigation_assessment: null,
         clearance_status: null,
         deletion_notified: false,
         deletion_notification_sent_at: null,
@@ -171,6 +181,18 @@ export default function AnalysisDetailPage() {
       };
     }
   }, [id, isDemo, fetchAnalysis, fetchMatches, subscribeToAnalysis, unsubscribeFromAnalysis]);
+
+  // Fetch user plan tier for chat feature gating
+  useEffect(() => {
+    if (!isDemo) {
+      fetch("/api/user/plan")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.tier) setPlanTier(data.tier);
+        })
+        .catch(() => {});
+    }
+  }, [isDemo]);
 
   // Fetch catalog names when analysis is clearance mode with catalog_ids
   const resolvedAnalysis = analysis || demoAnalysis;
@@ -454,6 +476,15 @@ export default function AnalysisDetailPage() {
                     )}
                   </div>
 
+                  {/* Litigation Risk Assessment */}
+                  {displayAnalysis.litigation_assessment && (
+                    <LitigationAssessmentCard
+                      analysisId={displayAnalysis.id}
+                      assessment={displayAnalysis.litigation_assessment as unknown as React.ComponentProps<typeof LitigationAssessmentCard>["assessment"]}
+                      onRegenerate={() => fetchAnalysis(id)}
+                    />
+                  )}
+
                   {/* Standard Mode: Matches */}
                   {displayMatches && displayMatches.length > 0 && (
                     <div className="space-y-4">
@@ -555,6 +586,23 @@ export default function AnalysisDetailPage() {
           )}
         </div>
       </div>
+
+      {/* AI Q&A Chat Panel */}
+      {displayAnalysis.status === "completed" && !isDemo && (
+        <AnalysisChat
+          analysisId={displayAnalysis.id}
+          planTier={planTier}
+          context={{
+            analysis: displayAnalysis,
+            matches: (displayMatches ?? []).map((m) => ({
+              match: m,
+              evidence: [],
+              reference: null,
+            })),
+            litigationAssessment: displayAnalysis.litigation_assessment as unknown as React.ComponentProps<typeof AnalysisChat>["context"]["litigationAssessment"],
+          }}
+        />
+      )}
     </>
   );
 }

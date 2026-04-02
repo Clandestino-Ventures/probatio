@@ -1453,6 +1453,181 @@ export const processAnalysis = inngest.createFunction(
       },
     );
 
+    // ── Step 9.5: Litigation Risk Assessment (Claude API) ────────────────
+    const litigationResult = await step.run(
+      "litigation-assessment",
+      { retries: MAX_RETRIES },
+      async () => {
+        const supabase = createAdminClient();
+
+        // Only generate for analyses with matches
+        const { data: matches } = await supabase
+          .from("analysis_matches")
+          .select("*, reference_tracks(title, artist, isrc, release_year, duration_seconds, genre)")
+          .eq("analysis_id", analysisId)
+          .order("score_overall", { ascending: false })
+          .limit(1) as { data: Array<Record<string, unknown>> | null };
+
+        if (!matches || matches.length === 0) return null;
+
+        const topMatch = matches[0];
+        const ref = topMatch.reference_tracks as Record<string, unknown> | null;
+
+        // Fetch analysis data
+        const { data: analysis } = await supabase
+          .from("analyses")
+          .select("*")
+          .eq("id", analysisId)
+          .single() as { data: Record<string, unknown> | null };
+
+        if (!analysis) return null;
+
+        // Fetch evidence for top match
+        const { data: evidence } = await supabase
+          .from("match_evidence")
+          .select("*")
+          .eq("match_id", topMatch.id as string)
+          .order("similarity_score", { ascending: false })
+          .limit(15) as { data: Array<Record<string, unknown>> | null };
+
+        // Compute primary transposition from melody evidence
+        const melodyEvidence = (evidence ?? []).filter(
+          (e) => e.dimension === "melody"
+        );
+        const transpositions = melodyEvidence
+          .map((e) => {
+            const detail = e.detail as Record<string, unknown> | null;
+            return detail?.transposition_semitones as number | undefined;
+          })
+          .filter((t): t is number => t != null);
+        const primaryTransposition =
+          transpositions.length > 0
+            ? transpositions
+                .sort(
+                  (a, b) =>
+                    transpositions.filter((v) => v === b).length -
+                    transpositions.filter((v) => v === a).length
+                )[0] || 0
+            : null;
+        const transpositionConsistency =
+          transpositions.length > 0 && primaryTransposition != null
+            ? transpositions.filter((t) => t === primaryTransposition).length /
+              transpositions.length
+            : 0;
+
+        // Compute release gap
+        const refReleaseYear = ref?.release_year as number | null;
+        const releaseGapDays =
+          refReleaseYear != null
+            ? Math.round(
+                (new Date(analysis.created_at as string).getTime() -
+                  new Date(`${refReleaseYear}-01-01`).getTime()) /
+                  (1000 * 60 * 60 * 24)
+              )
+            : null;
+
+        const formatTimeSec = (sec: number) => {
+          const m = Math.floor(sec / 60);
+          const s = Math.floor(sec % 60);
+          return `${m}:${s.toString().padStart(2, "0")}`;
+        };
+
+        const { generateLitigationAssessment } = await import(
+          "@/lib/report/litigation-assessment"
+        );
+
+        const assessmentInput = {
+          analysisId,
+          mode: (analysis.mode as string) ?? "screening",
+          trackA: {
+            title: (analysis.file_name as string) ?? "Unknown",
+            artist: "Analyzed Track",
+            releaseDate: null,
+            isrc: null,
+            duration: (analysis.duration_seconds as number) ?? 0,
+          },
+          trackB: {
+            title: (ref?.title as string) ?? "Reference Track",
+            artist: (ref?.artist as string) ?? "Unknown Artist",
+            releaseDate: refReleaseYear ? `${refReleaseYear}` : null,
+            isrc: (ref?.isrc as string) ?? null,
+            duration: (ref?.duration_seconds as number) ?? 0,
+          },
+          dimensionScores: {
+            melody: topMatch.score_melody != null ? {
+              raw: topMatch.score_melody as number,
+              adjusted: (topMatch.score_melody_adjusted as number) ?? (topMatch.score_melody as number),
+              baseline: 0.25,
+            } : null,
+            harmony: topMatch.score_harmony != null ? {
+              raw: topMatch.score_harmony as number,
+              adjusted: (topMatch.score_harmony_adjusted as number) ?? (topMatch.score_harmony as number),
+              baseline: 0.25,
+            } : null,
+            rhythm: topMatch.score_rhythm != null ? {
+              raw: topMatch.score_rhythm as number,
+              adjusted: (topMatch.score_rhythm_adjusted as number) ?? (topMatch.score_rhythm as number),
+              baseline: 0.25,
+            } : null,
+            timbre: topMatch.score_timbre != null ? {
+              raw: topMatch.score_timbre as number,
+              adjusted: (topMatch.score_timbre_adjusted as number) ?? (topMatch.score_timbre as number),
+              baseline: 0.25,
+            } : null,
+            lyrics: topMatch.score_lyrics != null ? {
+              raw: topMatch.score_lyrics as number,
+              adjusted: (topMatch.score_lyrics_adjusted as number) ?? (topMatch.score_lyrics as number),
+              baseline: 0.15,
+            } : null,
+          },
+          overallRaw: (topMatch.score_overall as number) ?? 0,
+          overallAdjusted: (topMatch.score_overall_adjusted as number) ?? (topMatch.score_overall as number) ?? 0,
+          riskLevel: (topMatch.risk_level as string) ?? "low",
+          detectedGenre: (analysis.detected_genre as string) ?? "pop",
+          genreConfidence: (analysis.genre_confidence as number) ?? 0.5,
+          topEvidence: (evidence ?? []).map((e) => ({
+            dimension: e.dimension as string,
+            similarity: e.similarity_score as number,
+            sourceTime: formatTimeSec(e.source_start_sec as number),
+            targetTime: formatTimeSec(e.target_start_sec as number),
+            transposition: (e.detail as Record<string, unknown>)?.transposition_semitones as number | undefined,
+            resolution: (e.resolution as string) ?? "phrase",
+          })),
+          totalEvidencePoints: (evidence ?? []).length,
+          primaryTransposition,
+          transpositionConsistency,
+          releaseGapDays,
+        };
+
+        const assessment = await generateLitigationAssessment(
+          assessmentInput as Parameters<typeof generateLitigationAssessment>[0]
+        );
+
+        // Store in analysis row
+        await supabase
+          .from("analyses")
+          .update({
+            litigation_assessment: assessment as unknown as Record<string, unknown>,
+          })
+          .eq("id", analysisId);
+
+        await logAudit({
+          userId,
+          analysisId,
+          action: "step_completed:litigation_assessment",
+          hash: matchesResult.searchHash,
+          metadata: {
+            risk: assessment.overallRisk,
+            probability: assessment.litigationProbability,
+            precedent: assessment.mostSimilarPrecedent.name,
+            confidence: assessment.assessmentConfidence,
+          },
+        });
+
+        return assessment;
+      },
+    );
+
     // ── Step 10: Finalize ────────────────────────────────────────────────
     const finalResult = await step.run(
       "finalize",

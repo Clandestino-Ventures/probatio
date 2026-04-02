@@ -28,11 +28,17 @@ import {
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { ExpertAnnotations } from "@/components/forensic/expert-annotations";
+import dynamic from "next/dynamic";
 import type {
   ForensicCaseRow,
   ForensicStatus,
   AnalysisStatus,
 } from "@/types/database";
+
+const LitigationAssessmentCard = dynamic(
+  () => import("@/components/analysis/litigation-assessment-card").then(m => ({ default: m.LitigationAssessmentCard })),
+  { ssr: false }
+);
 
 // ────────────────────────────────────────────────────────────────────────────
 // Status badge configuration
@@ -88,12 +94,14 @@ const SCORE_DIMENSIONS = [
 interface ForensicCaseData extends ForensicCaseRow {
   // Joined analysis data (may be present from a select with join)
   analysis?: {
+    id: string;
     file_name: string;
     audio_url: string | null;
     file_hash: string;
     duration_seconds: number | null;
     status: AnalysisStatus;
     overall_risk: string | null;
+    litigation_assessment: Record<string, unknown> | null;
   } | null;
   // Mock scores for display
   scores?: {
@@ -350,6 +358,14 @@ export default function ForensicCaseDetailPage() {
                 })}
               </div>
             </div>
+          )}
+
+          {/* Litigation Risk Assessment */}
+          {isCompleted && caseData.analysis?.litigation_assessment && (
+            <LitigationAssessmentCard
+              analysisId={caseData.analysis.id}
+              assessment={caseData.analysis.litigation_assessment as unknown as React.ComponentProps<typeof LitigationAssessmentCard>["assessment"]}
+            />
           )}
 
           {/* Chain of Custody */}
