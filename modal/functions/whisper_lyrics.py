@@ -29,7 +29,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     CUBLAS_WORKSPACE_CONFIG,
     LYRICS_EMBEDDING_DIM,
     LYRICS_EMBEDDING_MODEL,
@@ -41,7 +41,7 @@ from ..config import (
     whisper_image,
     GPU_T4,
 )
-from ..utils import (
+from utils import (
     download_audio,
     hash_json,
     numpy_to_list,
@@ -192,7 +192,6 @@ def _compute_lyrics_embedding(text: str) -> list[float]:
     image=whisper_image,
     gpu=GPU_T4,
     timeout=WHISPER_TIMEOUT,
-    retries=1,
 )
 def extract_lyrics(
     vocals_url: str,

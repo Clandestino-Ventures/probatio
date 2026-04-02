@@ -29,7 +29,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     CLAP_EMBEDDING_DIM,
     CLAP_MODEL,
     CLAP_SAMPLE_RATE,
@@ -45,7 +45,7 @@ from ..config import (
     clap_image,
     GPU_A10G,
 )
-from ..utils import (
+from utils import (
     download_audio_bytes,
     hash_json,
     numpy_to_list,
@@ -176,7 +176,6 @@ def _compute_embedding(audio_array: "numpy.ndarray") -> list[float]:
     image=clap_image,
     gpu=GPU_A10G,
     timeout=CLAP_TIMEOUT,
-    retries=1,
 )
 def generate_embeddings(
     full_audio_url: str,
@@ -384,7 +383,6 @@ def generate_embeddings(
     image=clap_image,
     gpu=GPU_A10G,
     timeout=CLAP_TIMEOUT,
-    retries=1,
 )
 def clap_embeddings(audio_url: str, label: str = "full_track") -> dict[str, Any]:
     """
@@ -416,9 +414,8 @@ def clap_embeddings(audio_url: str, label: str = "full_track") -> dict[str, Any]
     image=clap_image,
     gpu=GPU_A10G,
     timeout=CLAP_TIMEOUT,
-    retries=1,
 )
-@modal.web_endpoint(method="POST")
+@modal.fastapi_endpoint(method="POST")
 def generate_embeddings_endpoint(request: dict) -> dict:
     """
     HTTP POST endpoint for multi-dimensional CLAP embedding generation.

@@ -17,13 +17,13 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     FINGERPRINT_TIMEOUT,
     TARGET_SAMPLE_RATE,
     app,
     fingerprint_image,
 )
-from ..utils import hash_bytes
+from utils import hash_bytes
 
 logger = logging.getLogger("spectra.fingerprint")
 
@@ -127,7 +127,6 @@ def _acoustid_lookup(duration: int, fingerprint: str) -> dict[str, Any] | None:
 @app.function(
     image=fingerprint_image,
     timeout=FINGERPRINT_TIMEOUT,
-    retries=1,
 )
 def fingerprint(audio_url: str) -> dict[str, Any]:
     """
@@ -177,9 +176,8 @@ def fingerprint(audio_url: str) -> dict[str, Any]:
 @app.function(
     image=fingerprint_image,
     timeout=FINGERPRINT_TIMEOUT,
-    retries=1,
 )
-@modal.web_endpoint(method="POST")
+@modal.fastapi_endpoint(method="POST")
 def fingerprint_endpoint(request: dict) -> dict:
     """
     HTTP POST endpoint for audio fingerprinting.

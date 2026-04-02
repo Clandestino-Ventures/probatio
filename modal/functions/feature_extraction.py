@@ -26,7 +26,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     CHROMA_HOP_LENGTH,
     CREPE_CONFIDENCE_THRESHOLD,
     CREPE_MODEL_CAPACITY,
@@ -43,7 +43,7 @@ from ..config import (
     feature_extraction_image,
     GPU_T4,
 )
-from ..utils import (
+from utils import (
     download_audio_bytes,
     hash_json,
     numpy_to_list,
@@ -356,7 +356,6 @@ def _extract_segment_features(
     image=feature_extraction_image,
     gpu=GPU_T4,
     timeout=FEATURE_EXTRACTION_TIMEOUT,
-    retries=1,
 )
 def extract_features(
     stems_urls: dict[str, str],
@@ -556,7 +555,6 @@ def extract_features(
     image=feature_extraction_image,
     gpu=GPU_T4,
     timeout=FEATURE_EXTRACTION_TIMEOUT,
-    retries=1,
 )
 def feature_extraction(
     audio_url: str,
@@ -615,9 +613,8 @@ def feature_extraction(
     image=feature_extraction_image,
     gpu=GPU_T4,
     timeout=FEATURE_EXTRACTION_TIMEOUT,
-    retries=1,
 )
-@modal.web_endpoint(method="POST")
+@modal.fastapi_endpoint(method="POST")
 def extract_features_endpoint(request: dict) -> dict:
     """
     HTTP POST endpoint for feature extraction.

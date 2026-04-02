@@ -18,7 +18,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     CUBLAS_WORKSPACE_CONFIG,
     DEMUCS_MODEL,
     DEMUCS_TIMEOUT,
@@ -29,7 +29,7 @@ from ..config import (
     demucs_image,
     GPU_A10G,
 )
-from ..utils import hash_bytes, upload_bytes_to_supabase
+from utils import hash_bytes, upload_bytes_to_supabase
 
 logger = logging.getLogger("spectra.demucs")
 
@@ -122,7 +122,6 @@ def _separate(audio_bytes: bytes) -> dict[str, bytes]:
     image=demucs_image,
     gpu=GPU_A10G,
     timeout=DEMUCS_TIMEOUT,
-    retries=1,
 )
 def demucs_separation(audio_url: str) -> dict[str, Any]:
     """
@@ -181,9 +180,8 @@ def demucs_separation(audio_url: str) -> dict[str, Any]:
     image=demucs_image,
     gpu=GPU_A10G,
     timeout=DEMUCS_TIMEOUT,
-    retries=1,
 )
-@modal.web_endpoint(method="POST")
+@modal.fastapi_endpoint(method="POST")
 def separate_stems(request: dict) -> dict:
     """
     HTTP POST endpoint for stem separation.

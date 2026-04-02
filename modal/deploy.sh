@@ -18,16 +18,15 @@
 
 set -e
 
-# Ensure we're in the modal/ directory
+# Navigate to the modal/ directory and set PYTHONPATH so relative imports work
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-cd "$PROJECT_ROOT"
+cd "$SCRIPT_DIR"
 
 echo "╔══════════════════════════════════════════════╗"
 echo "║  SPECTRA — Deploying ML Functions to Modal   ║"
 echo "╚══════════════════════════════════════════════╝"
 echo ""
-echo "  Project root: $PROJECT_ROOT"
+echo "  Deploy dir: $SCRIPT_DIR"
 echo ""
 
 # Check modal CLI
@@ -36,33 +35,34 @@ if ! command -v modal &> /dev/null; then
     exit 1
 fi
 
-# Deploy using Python module paths (resolves relative imports)
+# Add modal/ to PYTHONPATH so `from config import ...` resolves correctly
+export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 echo "[1/7] Deploying audio normalization..."
-modal deploy -m modal.functions.audio_normalize
+modal deploy functions/audio_normalize.py
 echo "  ✓ audio_normalize deployed"
 
 echo "[2/7] Deploying Demucs stem separation..."
-modal deploy -m modal.functions.demucs_separation
+modal deploy functions/demucs_separation.py
 echo "  ✓ demucs_separation deployed"
 
 echo "[3/7] Deploying feature extraction (CREPE + librosa)..."
-modal deploy -m modal.functions.feature_extraction
+modal deploy functions/feature_extraction.py
 echo "  ✓ feature_extraction deployed"
 
 echo "[4/7] Deploying CLAP embeddings (multi-dimensional)..."
-modal deploy -m modal.functions.clap_embeddings
+modal deploy functions/clap_embeddings.py
 echo "  ✓ clap_embeddings deployed"
 
 echo "[5/7] Deploying Whisper lyrics extraction..."
-modal deploy -m modal.functions.whisper_lyrics
+modal deploy functions/whisper_lyrics.py
 echo "  ✓ whisper_lyrics deployed"
 
 echo "[6/7] Deploying Chromaprint fingerprinting..."
-modal deploy -m modal.functions.fingerprint
+modal deploy functions/fingerprint.py
 echo "  ✓ fingerprint deployed"
 
 echo "[7/7] Deploying PDF renderer..."
-modal deploy -m modal.functions.pdf_render
+modal deploy functions/pdf_render.py
 echo "  ✓ pdf_render deployed"
 
 echo ""

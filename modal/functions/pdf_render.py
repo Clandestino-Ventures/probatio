@@ -20,7 +20,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     PDF_RENDER_TIMEOUT,
     app,
     pdf_render_image,
@@ -97,7 +97,6 @@ async def _render_html_to_pdf(
 @app.function(
     image=pdf_render_image,
     timeout=PDF_RENDER_TIMEOUT,
-    retries=1,
     memory=2048,
 )
 def pdf_render(

@@ -23,7 +23,7 @@ from typing import Any
 
 import modal
 
-from ..config import (
+from config import (
     NORMALIZE_PEAK_CEILING_DB,
     NORMALIZE_STANDARD,
     NORMALIZE_TARGET_LUFS,
@@ -34,7 +34,7 @@ from ..config import (
     app,
     audio_normalize_image,
 )
-from ..utils import hash_bytes, upload_bytes_to_supabase
+from utils import hash_bytes, upload_bytes_to_supabase
 
 logger = logging.getLogger("spectra.normalize")
 
@@ -195,7 +195,6 @@ def _normalize_forensic(
 @app.function(
     image=audio_normalize_image,
     timeout=NORMALIZE_TIMEOUT,
-    retries=1,
 )
 def audio_normalize(audio_url: str) -> dict[str, Any]:
     """Download and normalize audio. Returns wav bytes + metrics."""
@@ -229,9 +228,8 @@ def audio_normalize(audio_url: str) -> dict[str, Any]:
 @app.function(
     image=audio_normalize_image,
     timeout=NORMALIZE_TIMEOUT,
-    retries=1,
 )
-@modal.web_endpoint(method="POST")
+@modal.fastapi_endpoint(method="POST")
 def normalize_endpoint(request: dict) -> dict:
     """
     HTTP POST endpoint for forensic audio normalization.
