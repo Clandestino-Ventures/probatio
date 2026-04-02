@@ -38,31 +38,31 @@ fi
 
 # Deploy using Python module paths (resolves relative imports)
 echo "[1/7] Deploying audio normalization..."
-modal deploy modal.functions.audio_normalize
+modal deploy -m modal.functions.audio_normalize
 echo "  ✓ audio_normalize deployed"
 
 echo "[2/7] Deploying Demucs stem separation..."
-modal deploy modal.functions.demucs_separation
+modal deploy -m modal.functions.demucs_separation
 echo "  ✓ demucs_separation deployed"
 
 echo "[3/7] Deploying feature extraction (CREPE + librosa)..."
-modal deploy modal.functions.feature_extraction
+modal deploy -m modal.functions.feature_extraction
 echo "  ✓ feature_extraction deployed"
 
 echo "[4/7] Deploying CLAP embeddings (multi-dimensional)..."
-modal deploy modal.functions.clap_embeddings
+modal deploy -m modal.functions.clap_embeddings
 echo "  ✓ clap_embeddings deployed"
 
 echo "[5/7] Deploying Whisper lyrics extraction..."
-modal deploy modal.functions.whisper_lyrics
+modal deploy -m modal.functions.whisper_lyrics
 echo "  ✓ whisper_lyrics deployed"
 
 echo "[6/7] Deploying Chromaprint fingerprinting..."
-modal deploy modal.functions.fingerprint
+modal deploy -m modal.functions.fingerprint
 echo "  ✓ fingerprint deployed"
 
 echo "[7/7] Deploying PDF renderer..."
-modal deploy modal.functions.pdf_render
+modal deploy -m modal.functions.pdf_render
 echo "  ✓ pdf_render deployed"
 
 echo ""
