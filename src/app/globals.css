@@ -1,26 +1,172 @@
 @import "tailwindcss";
+@import "../../brand/colors.css";
+@import "../../brand/typography.css";
+
+/* ── PROBATIO Theme ─────────────────────────────────────────────────────────── */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0B;
+  --foreground: #F5F0EB;
+  --color-background: #0A0A0B;
+  --color-foreground: #F5F0EB;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", "Fira Code", monospace;
+  --font-display: "Instrument Serif", "Playfair Display", Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Primary Palette */
+  --color-obsidian: #0A0A0B;
+  --color-bone: #F5F0EB;
+  --color-signal-red: #E63926;
+  --color-forensic-blue: #2E6CE6;
+  --color-evidence-gold: #C4992E;
+
+  /* Extended Palette */
+  --color-carbon: #161618;
+  --color-graphite: #1E1E21;
+  --color-ash: #8A8A8E;
+  --color-slate: #3A3A3F;
+  --color-ivory: #FAF8F5;
+
+  /* Risk Indicators */
+  --color-risk-low: #22C55E;
+  --color-risk-moderate: #F59E0B;
+  --color-risk-high: #F97316;
+  --color-risk-critical: #E63926;
+
+  /* Spacing Tokens */
+  --spacing-component-xs: 12px;
+  --spacing-component-sm: 16px;
+  --spacing-component-md: 20px;
+  --spacing-component-lg: 24px;
+  --spacing-section-sm: 48px;
+  --spacing-section-md: 64px;
+  --spacing-section-lg: 96px;
+  --spacing-section-xl: 128px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-glow-blue: 0 0 20px rgba(46, 108, 230, 0.3);
+  --shadow-glow-red: 0 0 20px rgba(230, 57, 38, 0.3);
+  --shadow-glow-gold: 0 0 20px rgba(196, 153, 46, 0.3);
+
+  /* Motion */
+  --duration-micro: 200ms;
+  --duration-reveal: 400ms;
+  --duration-page: 600ms;
+  --ease-probatio: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Animations */
+  --animate-fade-in: fade-in 400ms ease-out;
+  --animate-fade-up: fade-up 400ms ease-out;
+  --animate-fade-down: fade-down 400ms ease-out;
+  --animate-scale-in: scale-in 200ms ease-out;
+  --animate-pulse-risk: pulse-risk 2s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 3s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse-risk {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
 
+/* ── Base Styles ───────────────────────────────────────────────────────────── */
+
+html {
+  background-color: var(--color-obsidian);
+  color: var(--color-bone);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-obsidian);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+
+::selection {
+  background-color: rgba(46, 108, 230, 0.3);
+  color: var(--color-bone);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ash);
+}
+
+/* ── Focus Styles ──────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-forensic-blue);
+  outline-offset: 2px;
+}
+
+/* ── Typography Utility Classes ────────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.probatio-wordmark {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "liga" 0, "calt" 1, "zero" 1;
+  font-variant-numeric: tabular-nums;
 }

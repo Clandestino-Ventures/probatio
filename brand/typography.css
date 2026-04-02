@@ -1,0 +1,69 @@
+/* SPECTRA Typography System — v1.0.0 */
+/* Clandestino Ventures, LLC © 2026 */
+
+/*
+ * Font loading is handled by next/font/google in layout.tsx.
+ * Geist, Geist Mono, and Instrument Serif are injected as CSS
+ * variables (--font-geist-sans, --font-geist-mono, --font-instrument-serif)
+ * and applied to the <html> element. No @font-face declarations needed.
+ */
+
+/* Font Family Variables */
+:root {
+  --font-display: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Type Scale — 12 / 14 / 16 / 20 / 24 / 32 / 40 / 56 / 72 */
+:root {
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.25rem;     /* 20px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 2rem;       /* 32px */
+  --text-3xl: 2.5rem;     /* 40px */
+  --text-4xl: 3.5rem;     /* 56px */
+  --text-5xl: 4.5rem;     /* 72px */
+
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+}
+
+/* Font Feature Settings */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'liga' 1, 'kern' 1;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: 'liga' 0, 'calt' 1, 'zero' 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Wordmark */
+.spectra-wordmark {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}

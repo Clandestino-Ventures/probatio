@@ -1,7 +1,21 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ──────────────────────────────────────────────────────────────────────────────
+# SPECTRA — .gitignore
+# ──────────────────────────────────────────────────────────────────────────────
 
-# dependencies
-/node_modules
+# ── Generated PDFs (npm run templates) ────────────────────────────────────────
+generated-pdfs/
+
+# ── Claude Code / IDE state ──────────────────────────────────────────────────
+.claude/
+.remember/
+
+# ── Misc development files ───────────────────────────────────────────────────
+AUDIT_REPORT.md
+*.jpeg
+spectra_gap_analysis.md.pdf
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -10,32 +24,96 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# ── Next.js ───────────────────────────────────────────────────────────────────
 /.next/
 /out/
+/build/
+next-env.d.ts
 
-# production
-/build
+# ── Environment variables ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
 
-# misc
+# ── Audio files (never commit uploaded/processed audio) ───────────────────────
+*.wav
+*.mp3
+*.flac
+*.aiff
+*.aif
+*.ogg
+*.m4a
+*.aac
+*.wma
+*.opus
+
+# ── OS files ──────────────────────────────────────────────────────────────────
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# debug
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/*.code-workspace
+*.swp
+*.swo
+*~
+.editorconfig
+
+# ── Python (Modal workers) ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+dist/
+*.egg
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+/coverage/
+*.lcov
+.nyc_output/
+
+# ── Build artifacts ───────────────────────────────────────────────────────────
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+
+# ── Debug logs ────────────────────────────────────────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ── Certificates & keys ──────────────────────────────────────────────────────
+*.pem
+*.key
+*.cert
+*.crt
 
-# vercel
+# ── Deployment ────────────────────────────────────────────────────────────────
 .vercel
+.netlify
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ── Sentry ────────────────────────────────────────────────────────────────────
+.sentryclirc
+
+# ── Supabase local ────────────────────────────────────────────────────────────
+supabase/.temp/
+supabase/.branches/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+.cache/

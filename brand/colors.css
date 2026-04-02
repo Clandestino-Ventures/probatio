@@ -1,0 +1,51 @@
+/* SPECTRA Color System — v1.0.0 */
+/* Clandestino Ventures © 2026 */
+
+:root {
+  /* Primary Palette */
+  --color-obsidian: #0A0A0B;
+  --color-bone: #F5F0EB;
+  --color-signal-red: #E63926;
+  --color-forensic-blue: #2E6CE6;
+  --color-evidence-gold: #C4992E;
+
+  /* Extended Palette */
+  --color-carbon: #161618;
+  --color-graphite: #1E1E21;
+  --color-ash: #8A8A8E;
+  --color-slate: #3A3A3F;
+  --color-ivory: #FAF8F5;
+
+  /* Risk Indicators */
+  --color-risk-green: #22C55E;
+  --color-risk-amber: #F59E0B;
+  --color-risk-orange: #F97316;
+
+  /* Semantic Aliases */
+  --bg-primary: var(--color-obsidian);
+  --bg-elevated: var(--color-carbon);
+  --bg-surface: var(--color-graphite);
+  --text-primary: var(--color-bone);
+  --text-secondary: var(--color-ash);
+  --border-default: var(--color-slate);
+  --interactive: var(--color-forensic-blue);
+  --destructive: var(--color-signal-red);
+  --verified: var(--color-evidence-gold);
+
+  /* Risk Level Mapping */
+  --risk-low: var(--color-risk-green);
+  --risk-medium: var(--color-risk-amber);
+  --risk-high: var(--color-risk-orange);
+  --risk-critical: var(--color-signal-red);
+
+  /* Alpha Variants */
+  --color-obsidian-50: rgba(10, 10, 11, 0.5);
+  --color-bone-10: rgba(245, 240, 235, 0.1);
+  --color-bone-20: rgba(245, 240, 235, 0.2);
+  --color-forensic-blue-10: rgba(46, 108, 230, 0.1);
+  --color-forensic-blue-20: rgba(46, 108, 230, 0.2);
+  --color-signal-red-10: rgba(230, 57, 38, 0.1);
+  --color-signal-red-20: rgba(230, 57, 38, 0.2);
+  --color-evidence-gold-10: rgba(196, 153, 46, 0.1);
+  --color-evidence-gold-20: rgba(196, 153, 46, 0.2);
+}

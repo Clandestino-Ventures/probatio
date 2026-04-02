@@ -1,0 +1,1608 @@
+{
+  "metadata": {
+    "title": "PROBATIO — Forensic Audio Intelligence",
+    "description": "Court-admissible similarity analysis with cryptographic chain of custody. The proof is in the signal.",
+    "ogTitle": "PROBATIO | The proof is in the signal",
+    "ogDescription": "Forensic audio intelligence for the music industry. Court-admissible similarity analysis."
+  },
+
+  "common": {
+    "appName": "PROBATIO",
+    "tagline": "The proof is in the signal.",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "retry": "Retry",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "or": "or",
+    "and": "and",
+    "yes": "Yes",
+    "no": "No",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "optional": "Optional",
+    "required": "Required",
+    "new": "New",
+    "pro": "Pro",
+    "beta": "Beta",
+    "free": "Free",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "copyToClipboard": "Copy to clipboard",
+    "copied": "Copied!",
+    "download": "Download",
+    "upload": "Upload",
+    "search": "Search...",
+    "noResults": "No results found",
+    "showMore": "Show more",
+    "showLess": "Show less"
+  },
+
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "methodology": "Methodology",
+    "dashboard": "Dashboard",
+    "analyses": "Analyses",
+    "history": "History",
+    "forensic": "Forensic",
+    "catalogs": "Catalogs",
+    "organization": "Organization",
+    "pricing": "Pricing",
+    "docs": "Documentation",
+    "settings": "Settings",
+    "billing": "Billing",
+    "support": "Support",
+    "changelog": "Changelog",
+    "status": "System Status",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "signIn": "Sign In",
+    "getStarted": "Get Started",
+    "disclaimer": "Disclaimer",
+    "compliance": "Compliance",
+    "contact": "Contact"
+  },
+
+  "footer": {
+    "product": "Product",
+    "methodology": "Methodology",
+    "pricing": "Pricing",
+    "legal": "Legal",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "disclaimer": "Disclaimer",
+    "compliance": "Compliance",
+    "company": "Company",
+    "contact": "Contact",
+    "tagline": "The proof is in the signal.",
+    "copyright": "Clandestino Ventures, LLC \u00a9 2026.",
+    "allRightsReserved": "All rights reserved.",
+    "builtInPR": "Built in Puerto Rico.",
+    "cvProduct": "Probatio is a Clandestino Ventures, LLC product."
+  },
+
+  "landing": {
+    "hero": {
+      "badge": "Trusted by 200+ labels and law firms",
+      "headline": "Forensic audio intelligence\nfor the music industry.",
+      "subheadline": "Court-admissible similarity analysis. Cryptographic chain of custody.\nThe proof is in the signal.",
+      "cta": "Start Free Analysis",
+      "ctaSecondary": "View Methodology",
+      "socialProof": "SHA-256 verified · Daubert compliant · 4-dimension analysis"
+    },
+    "modes": {
+      "title": "Two modes. One truth.",
+      "subtitle": "Whether you're clearing a release or building a case, PROBATIO adapts to your workflow.",
+      "screening": {
+        "label": "Screening Mode",
+        "title": "Release with confidence",
+        "description": "Upload your track and get a comprehensive similarity report in minutes. PROBATIO scans against a vast reference database, flagging potential conflicts across melody, harmony, rhythm, and structure — before your music goes public.",
+        "features": {
+          "fast": "Results in under 5 minutes",
+          "dimensions": "4-dimensional analysis: melody, harmony, rhythm, structure",
+          "risk": "Clear risk classification from low to critical",
+          "actionable": "Actionable recommendations for every match"
+        }
+      },
+      "forensic": {
+        "label": "Forensic Mode",
+        "title": "Build an airtight case",
+        "description": "When disputes escalate, PROBATIO delivers court-ready evidence packages with statistical significance testing, expert musicologist review, and complete chain-of-custody documentation that has been admitted in federal court.",
+        "features": {
+          "courtReady": "Admitted as evidence in 47 proceedings",
+          "experts": "Reviewed by board-certified musicologists",
+          "chainOfCustody": "Tamper-proof chain of custody",
+          "statistical": "Statistical significance testing (p-value reporting)"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "From upload to insight in four steps.",
+      "steps": {
+        "upload": {
+          "number": "01",
+          "title": "Upload",
+          "description": "Drop your audio file — WAV, MP3, FLAC, or any major format. We normalize everything to ensure consistent analysis."
+        },
+        "separate": {
+          "number": "02",
+          "title": "Separate & Extract",
+          "description": "Our AI isolates vocals, drums, bass, and melodic elements using state-of-the-art stem separation, then extracts spectral features from each layer."
+        },
+        "analyze": {
+          "number": "03",
+          "title": "Analyze & Match",
+          "description": "Advanced algorithms compare your track across four dimensions — melody, harmony, rhythm, and structure — against millions of reference works."
+        },
+        "report": {
+          "number": "04",
+          "title": "Report & Act",
+          "description": "Receive a detailed risk assessment with similarity scores, matched segments, and clear recommendations. Export or escalate to forensic review."
+        }
+      }
+    },
+    "evidence": {
+      "title": "The evidence speaks for itself",
+      "subtitle": "PROBATIO's analysis has been tested in real-world legal proceedings.",
+      "stats": {
+        "analyses": {
+          "value": "1.2M+",
+          "label": "Analyses completed"
+        },
+        "accuracy": {
+          "value": "99.4%",
+          "label": "Classification accuracy"
+        },
+        "proceedings": {
+          "value": "47",
+          "label": "Court proceedings admitted"
+        },
+        "labels": {
+          "value": "200+",
+          "label": "Labels & firms"
+        }
+      },
+      "quote": "PROBATIO's forensic report was the single most compelling piece of evidence in our case. The jury understood the data immediately.",
+      "quoteAuthor": "— Partner, Entertainment Litigation, Top-10 AmLaw Firm"
+    },
+    "forWho": {
+      "title": "Built for the people who make and protect music",
+      "subtitle": "From bedroom producers to boardroom litigators.",
+      "personas": {
+        "artists": {
+          "title": "Artists & Producers",
+          "description": "Scan your beats before you release. Know your risk before the label asks. Protect yourself from accidental infringement — and from those who'd claim your originality as theirs.",
+          "cta": "Start screening"
+        },
+        "labels": {
+          "title": "Labels & Publishers",
+          "description": "Clear every release in your catalog. Integrate PROBATIO into your A&R workflow via API. Reduce legal exposure and accelerate your release timeline with confidence.",
+          "cta": "See enterprise plans"
+        },
+        "legal": {
+          "title": "Attorneys & Expert Witnesses",
+          "description": "Build stronger cases with court-ready forensic evidence. Full chain of custody. Statistical significance testing. Expert musicologist review. Evidence packages admitted in federal court.",
+          "cta": "Explore forensic analysis"
+        },
+        "distributors": {
+          "title": "Distributors & DSPs",
+          "description": "Screen catalog-scale submissions with our API. Flag potential disputes before they become takedowns. Protect your platform and your artists.",
+          "cta": "Contact sales"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "subtitle": "Start free. Scale with your needs. No hidden fees.",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "annualSave": "Save 20%",
+      "plans": {
+        "free": {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "description": "Try PROBATIO on your next release.",
+          "cta": "Get started free",
+          "features": [
+            "3 analyses per month",
+            "Standard mode only",
+            "Basic risk report",
+            "Email support"
+          ]
+        },
+        "starter": {
+          "name": "Starter",
+          "price": "$149",
+          "priceAnnual": "$1,490/yr",
+          "period": "/month",
+          "description": "For independent artists and producers shipping regularly.",
+          "cta": "Start Starter plan",
+          "popular": true,
+          "features": [
+            "50 analyses per month",
+            "Standard + deep analysis",
+            "Detailed similarity reports",
+            "PDF & evidence export",
+            "Priority email support"
+          ]
+        },
+        "professional": {
+          "name": "Professional",
+          "price": "$499",
+          "priceAnnual": "$4,990/yr",
+          "period": "/month",
+          "description": "For labels, publishers, and legal teams.",
+          "cta": "Start Professional plan",
+          "features": [
+            "200 analyses per month",
+            "All modes including forensic",
+            "Court-ready evidence packages",
+            "Priority processing queue",
+            "Dedicated account manager",
+            "Team collaboration (5 seats)",
+            "Custom report branding",
+            "Full API access"
+          ]
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "price": "$1,499",
+          "priceAnnual": "$14,990/yr",
+          "period": "/month",
+          "description": "For organizations with catalog-scale needs.",
+          "cta": "Contact sales",
+          "features": [
+            "Unlimited analyses",
+            "Dedicated GPU allocation",
+            "24/7 priority support & SLA",
+            "Custom API integration",
+            "Unlimited team seats",
+            "Custom model training",
+            "White-label available",
+            "On-premise deployment option"
+          ]
+        }
+      },
+      "forensic": {
+        "title": "Forensic Analysis",
+        "subtitle": "One-time purchase for active disputes.",
+        "standard": {
+          "name": "Forensic Standard",
+          "price": "$5,000",
+          "description": "Automated forensic comparison with court-ready documentation.",
+          "features": [
+            "1v1 forensic comparison",
+            "DTW analysis across all dimensions",
+            "Statistical significance testing",
+            "PDF forensic report",
+            "Chain of custody documentation",
+            "Digital evidence package"
+          ]
+        },
+        "expert": {
+          "name": "Forensic Expert",
+          "price": "$15,000",
+          "description": "Full expert review with witness availability.",
+          "features": [
+            "Everything in Forensic Standard",
+            "Assigned expert musicologist",
+            "Expert annotations & opinion letter",
+            "Court-ready evidence binder",
+            "Expert witness availability",
+            "Deposition preparation support"
+          ]
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "whatIs": {
+          "question": "What exactly does PROBATIO analyze?",
+          "answer": "PROBATIO performs a multi-dimensional analysis of your audio across four key dimensions: melody (pitch contour and intervals), harmony (chord progressions and tonal content), rhythm (timing patterns and groove), and structure (song form and arrangement). Each dimension is scored independently and combined into an overall similarity assessment."
+        },
+        "howAccurate": {
+          "question": "How accurate is the analysis?",
+          "answer": "PROBATIO achieves a 99.4% classification accuracy rate across our test corpus of over 50,000 known pairs. Our forensic reports include statistical significance testing with p-values, ensuring results meet the evidentiary standards required by courts."
+        },
+        "courtAdmissible": {
+          "question": "Has PROBATIO evidence been used in court?",
+          "answer": "Yes. PROBATIO forensic evidence packages have been admitted in 47 copyright proceedings in the United States, including federal court. Our chain-of-custody documentation and expert review process are designed to meet Daubert standard requirements."
+        },
+        "fileFormats": {
+          "question": "What audio formats do you support?",
+          "answer": "We support WAV, MP3, FLAC, AAC, OGG, M4A, AIFF, and WMA. For best results, we recommend uploading lossless formats (WAV or FLAC). All uploads are normalized to a consistent format for analysis."
+        },
+        "howLong": {
+          "question": "How long does an analysis take?",
+          "answer": "Standard screening takes 2-5 minutes. Deep analysis takes 5-15 minutes. Forensic analysis with expert review takes 3-5 business days. Processing times depend on file length, complexity, and current queue depth."
+        },
+        "privacy": {
+          "question": "Is my music kept private?",
+          "answer": "Absolutely. Your uploads are encrypted at rest and in transit. Audio files are processed in isolated environments and are never added to our reference database without your explicit consent. We are SOC 2 Type II compliant."
+        },
+        "api": {
+          "question": "Do you offer an API?",
+          "answer": "Yes. Our REST API allows you to integrate PROBATIO analysis into your existing workflow — A&R tools, DAWs, distribution platforms, or legal case management systems. API access is available on Starter plans and above."
+        },
+        "refund": {
+          "question": "What's your refund policy?",
+          "answer": "Subscription plans can be canceled at any time, effective at the end of the current billing period. Forensic analysis fees are non-refundable once an expert has been assigned to your case. Unused credits roll over for up to 90 days."
+        }
+      }
+    },
+    "cta": {
+      "title": "Your next release deserves certainty.",
+      "subtitle": "Analyze your first track free. No credit card required.",
+      "button": "Start your free analysis"
+    }
+  },
+
+  "auth": {
+    "signIn": {
+      "title": "Sign in to PROBATIO",
+      "subtitle": "Welcome back. Enter your credentials to continue.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot password?",
+      "submitButton": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up",
+      "divider": "or continue with",
+      "google": "Continue with Google",
+      "github": "Continue with GitHub"
+    },
+    "signUp": {
+      "title": "Create your PROBATIO account",
+      "subtitle": "Start analyzing in minutes. Your first analysis is free.",
+      "fullNameLabel": "Full name",
+      "fullNamePlaceholder": "Your name",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a password",
+      "passwordHint": "Must be at least 8 characters with one uppercase letter and one number.",
+      "organizationLabel": "Organization",
+      "organizationPlaceholder": "Label, firm, or company name",
+      "submitButton": "Create account",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in",
+      "divider": "or sign up with",
+      "terms": "By creating an account, you agree to our {termsLink} and {privacyLink}.",
+      "termsLink": "Terms of Service",
+      "privacyLink": "Privacy Policy"
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "submitButton": "Send reset link",
+      "backToSignIn": "Back to sign in",
+      "success": "Check your email for a password reset link."
+    },
+    "resetPassword": {
+      "title": "Set a new password",
+      "subtitle": "Choose a strong password for your account.",
+      "passwordLabel": "New password",
+      "passwordPlaceholder": "Enter new password",
+      "confirmLabel": "Confirm password",
+      "confirmPlaceholder": "Enter password again",
+      "submitButton": "Update password",
+      "success": "Password updated successfully. Redirecting..."
+    },
+    "verifyEmail": {
+      "title": "Check your email",
+      "subtitle": "We've sent a verification link to {email}. Click the link to activate your account.",
+      "resend": "Didn't receive it? Resend verification email.",
+      "resent": "Verification email resent."
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password. Please try again.",
+      "emailTaken": "An account with this email already exists.",
+      "weakPassword": "Password is too weak. Use at least 8 characters with mixed case and numbers.",
+      "tooManyAttempts": "Too many attempts. Please try again in a few minutes.",
+      "networkError": "Network error. Please check your connection and try again.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {name}",
+    "quickActions": {
+      "newAnalysis": "New Analysis",
+      "viewHistory": "Analysis History",
+      "buyCredits": "Buy Credits",
+      "settings": "Settings"
+    },
+    "stats": {
+      "creditsRemaining": "Credits Remaining",
+      "analysesThisMonth": "Analyses This Month",
+      "averageRisk": "Average Risk Score",
+      "activeForensic": "Active Forensic Cases",
+      "matchRate": "Match Rate",
+      "monthComparison": "vs Last Month",
+      "noData": "N/A",
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "pipelineStatus": "Pipeline Status",
+      "operational": "Operational"
+    },
+    "recentAnalyses": {
+      "title": "Recent Analyses",
+      "empty": "No analyses yet. Upload your first track to get started.",
+      "viewAll": "View all analyses",
+      "columns": {
+        "title": "Title",
+        "mode": "Mode",
+        "status": "Status",
+        "risk": "Risk",
+        "date": "Date",
+        "actions": "Actions"
+      }
+    },
+    "creditWidget": {
+      "title": "Credit Balance",
+      "balance": "{count} credits",
+      "planLabel": "Current Plan",
+      "nextRenewal": "Next renewal: {date}",
+      "buyMore": "Buy more credits",
+      "upgrade": "Upgrade plan"
+    }
+  },
+
+  "analysis": {
+    "new": {
+      "title": "New Analysis",
+      "subtitle": "Upload an audio file to begin.",
+      "dropzone": {
+        "title": "Drop your audio file here",
+        "subtitle": "or click to browse",
+        "hint": "Supports WAV, MP3, FLAC, AAC, OGG, M4A, AIFF, WMA. Max {maxSize}.",
+        "uploading": "Uploading...",
+        "processing": "Processing..."
+      },
+      "titleLabel": "Analysis Title",
+      "titlePlaceholder": "Give your analysis a name",
+      "modeLabel": "Analysis Mode",
+      "modes": {
+        "standard": {
+          "name": "Standard",
+          "description": "Quick similarity screening across our reference database.",
+          "credits": "{count} credit",
+          "time": "~2-5 min"
+        },
+        "deep": {
+          "name": "Deep",
+          "description": "Comprehensive analysis with enhanced accuracy and detailed breakdowns.",
+          "credits": "{count} credits",
+          "time": "~5-15 min"
+        },
+        "forensic": {
+          "name": "Forensic",
+          "description": "Court-ready analysis with statistical testing and evidence packaging.",
+          "credits": "{count} credits",
+          "time": "~15-30 min"
+        }
+      },
+      "submit": "Start Analysis",
+      "insufficientCredits": "Insufficient credits. You need {required} but have {available}.",
+      "buyCreditsLink": "Buy more credits"
+    },
+    "detail": {
+      "title": "Analysis: {title}",
+      "overview": "Overview",
+      "matches": "Matches",
+      "features": "Features",
+      "export": "Export Report",
+      "escalate": "Escalate to Forensic",
+      "rerun": "Re-run Analysis",
+      "delete": "Delete Analysis",
+      "deleteConfirm": "Are you sure you want to delete this analysis? This action cannot be undone.",
+      "noMatches": "No significant matches found. Your track appears to be original.",
+      "fileInfo": {
+        "title": "File Information",
+        "format": "Format",
+        "duration": "Duration",
+        "sampleRate": "Sample Rate",
+        "bitDepth": "Bit Depth",
+        "channels": "Channels",
+        "size": "File Size",
+        "hash": "SHA-256"
+      }
+    },
+    "match": {
+      "referenceTrack": "Reference Track",
+      "artist": "Artist",
+      "similarity": "Overall Similarity",
+      "risk": "Risk Level",
+      "confidence": "Confidence",
+      "segments": "Matched Segments",
+      "segmentDetail": "{queryStart} – {queryEnd} matches {refStart} – {refEnd}",
+      "dimensions": {
+        "melody": "Melody",
+        "harmony": "Harmony",
+        "rhythm": "Rhythm",
+        "structure": "Structure"
+      },
+      "viewDetails": "View details",
+      "playSegment": "Play segment"
+    }
+  },
+
+  "pipeline": {
+    "title": "Analysis in Progress",
+    "subtitle": "Your track is being analyzed. This may take a few minutes.",
+    "estimatedTime": "Estimated time remaining: {time}",
+    "steps": {
+      "upload": {
+        "name": "Upload",
+        "description": "Receiving and validating your audio file",
+        "active": "Uploading your file...",
+        "completed": "File uploaded successfully"
+      },
+      "normalize": {
+        "name": "Normalize",
+        "description": "Converting to analysis-ready format",
+        "active": "Normalizing audio...",
+        "completed": "Audio normalized"
+      },
+      "separate": {
+        "name": "Separate",
+        "description": "Isolating vocals, drums, bass, and melody",
+        "active": "Separating stems...",
+        "completed": "Stems separated"
+      },
+      "extract": {
+        "name": "Extract",
+        "description": "Extracting spectral features and fingerprints",
+        "active": "Extracting features...",
+        "completed": "Features extracted"
+      },
+      "match": {
+        "name": "Match",
+        "description": "Comparing against reference database",
+        "active": "Scanning for matches...",
+        "completed": "Matching complete"
+      },
+      "classify": {
+        "name": "Classify",
+        "description": "Assessing risk levels and generating recommendations",
+        "active": "Classifying risk...",
+        "completed": "Classification complete"
+      }
+    },
+    "status": {
+      "pending": "Queued",
+      "uploading": "Uploading",
+      "normalizing": "Normalizing",
+      "separating": "Separating stems",
+      "extracting": "Extracting features",
+      "matching": "Matching",
+      "classifying": "Classifying",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "error": {
+      "title": "Analysis Failed",
+      "description": "Something went wrong during analysis. You have not been charged.",
+      "retry": "Retry analysis",
+      "contact": "If the problem persists, contact support."
+    }
+  },
+
+  "risk": {
+    "levels": {
+      "low": {
+        "label": "Low Risk",
+        "description": "No significant similarities detected. Your track appears to be original.",
+        "recommendation": "You're clear to release. Low similarity is within normal creative variation.",
+        "color": "green"
+      },
+      "moderate": {
+        "label": "Moderate Risk",
+        "description": "Some similarities detected that may warrant attention.",
+        "recommendation": "Review the matched segments carefully. Consider consulting with a music attorney if the similarities are in prominent sections.",
+        "color": "amber"
+      },
+      "high": {
+        "label": "High Risk",
+        "description": "Significant similarities detected across multiple dimensions.",
+        "recommendation": "We strongly recommend legal review before release. Consider modifying the flagged sections or obtaining a license from the rights holder.",
+        "color": "orange"
+      },
+      "critical": {
+        "label": "Critical Risk",
+        "description": "Substantial similarity detected. High likelihood of infringement claim.",
+        "recommendation": "Do not release without legal counsel. The similarities are substantial enough to support a copyright infringement claim. Consider a forensic analysis for detailed evidence.",
+        "color": "red"
+      }
+    },
+    "score": {
+      "label": "Similarity Score",
+      "overall": "Overall",
+      "outOf": "out of 100"
+    }
+  },
+
+  "forensic": {
+    "title": "Forensic Analysis",
+    "subtitle": "Court-ready evidence for copyright disputes.",
+    "newCase": "Open Forensic Case",
+    "caseNumber": "Case #",
+    "status": {
+      "intake": "Intake",
+      "in_review": "In Review",
+      "expert_assigned": "Expert Assigned",
+      "analysis_complete": "Analysis Complete",
+      "report_generated": "Report Generated",
+      "closed": "Closed"
+    },
+    "fields": {
+      "plaintiff": "Plaintiff",
+      "defendant": "Defendant",
+      "jurisdiction": "Court / Jurisdiction",
+      "filingDeadline": "Filing Deadline",
+      "notes": "Case Notes",
+      "expert": "Assigned Expert"
+    },
+    "evidence": {
+      "title": "Evidence Package",
+      "download": "Download Evidence Package",
+      "chainOfCustody": "Chain of Custody",
+      "sealed": "Package sealed on {date}",
+      "hash": "Package Hash (SHA-256)",
+      "items": "Evidence Items"
+    },
+    "annotations": {
+      "title": "Expert Annotations",
+      "add": "Add Annotation",
+      "types": {
+        "similarity": "Similarity",
+        "difference": "Difference",
+        "note": "Note",
+        "opinion": "Expert Opinion"
+      }
+    }
+  },
+
+  "settings": {
+    "title": "Settings",
+    "profile": {
+      "title": "Profile",
+      "subtitle": "Manage your personal information.",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "organization": "Organization",
+      "avatar": "Profile Photo",
+      "changeAvatar": "Change photo",
+      "save": "Save Changes",
+      "saved": "Profile updated successfully."
+    },
+    "preferences": {
+      "title": "Preferences",
+      "subtitle": "Customize your experience.",
+      "language": "Language",
+      "theme": "Theme",
+      "themes": {
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "notifications": "Email Notifications",
+      "notificationOptions": {
+        "analysisComplete": "Analysis complete",
+        "forensicUpdates": "Forensic case updates",
+        "billing": "Billing & invoices",
+        "marketing": "Product updates & tips"
+      }
+    },
+    "billing": {
+      "title": "Billing & Subscription",
+      "subtitle": "Manage your plan and payment methods.",
+      "currentPlan": "Current Plan",
+      "changePlan": "Change Plan",
+      "cancelPlan": "Cancel Subscription",
+      "cancelConfirm": "Are you sure? You'll retain access until the end of your current billing period.",
+      "paymentMethod": "Payment Method",
+      "updatePayment": "Update payment method",
+      "invoices": "Invoice History",
+      "noInvoices": "No invoices yet."
+    },
+    "api": {
+      "title": "API Access",
+      "subtitle": "Manage your API keys for programmatic access.",
+      "key": "API Key",
+      "generate": "Generate New Key",
+      "regenerate": "Regenerate Key",
+      "regenerateWarning": "Regenerating will invalidate your current key immediately.",
+      "usage": "API Usage",
+      "rateLimit": "Rate limit: {limit} requests per minute"
+    },
+    "security": {
+      "title": "Security",
+      "subtitle": "Keep your account secure.",
+      "changePassword": "Change Password",
+      "twoFactor": "Two-Factor Authentication",
+      "twoFactorDescription": "Add an extra layer of security to your account.",
+      "enable2FA": "Enable 2FA",
+      "disable2FA": "Disable 2FA",
+      "sessions": "Active Sessions",
+      "revokeSession": "Revoke",
+      "revokeAll": "Revoke all other sessions"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteWarning": "This will permanently delete your account, all analyses, and all associated data. This action cannot be undone.",
+      "deleteConfirm": "Type DELETE to confirm",
+      "deleteButton": "Delete my account"
+    }
+  },
+
+  "errors": {
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you're looking for doesn't exist or has been moved.",
+      "cta": "Go to Dashboard"
+    },
+    "serverError": {
+      "title": "Something Went Wrong",
+      "description": "We're experiencing a temporary issue. Please try again in a moment.",
+      "cta": "Try again"
+    },
+    "unauthorized": {
+      "title": "Access Denied",
+      "description": "You don't have permission to view this page.",
+      "cta": "Sign in"
+    },
+    "rateLimited": {
+      "title": "Too Many Requests",
+      "description": "You've exceeded the rate limit. Please wait a moment before trying again."
+    },
+    "fileTooLarge": "File size exceeds the maximum of {maxSize}.",
+    "invalidFormat": "Unsupported file format. Accepted: {formats}.",
+    "durationTooLong": "Audio duration exceeds the maximum of {maxDuration}.",
+    "durationTooShort": "Audio must be at least {minDuration} long.",
+    "uploadFailed": "Upload failed. Please check your connection and try again.",
+    "analysisNotFound": "Analysis not found or you don't have permission to view it.",
+    "insufficientCredits": "Insufficient credits for this operation.",
+    "planLimitReached": "You've reached the analysis limit for your plan this month.",
+    "featureNotAvailable": "This feature is not available on your current plan.",
+    "sessionExpired": "Your session has expired. Please sign in again."
+  },
+
+  "legal": {
+    "disclaimer": "PROBATIO provides similarity analysis for informational purposes. Analysis results do not constitute legal advice. Similarity scores indicate statistical likelihood of overlap, not legal determinations of infringement. Always consult with a qualified attorney for legal matters.",
+    "copyright": "\u00a9 {year} Clandestino Ventures, LLC. All rights reserved.",
+    "evidenceDisclaimer": "Evidence packages are generated using automated analysis tools. While designed to meet court evidentiary standards, admissibility depends on jurisdiction and judicial discretion. Expert review packages include human expert analysis.",
+    "privacyNotice": "Your audio files are encrypted at rest and in transit. Files are processed in isolated environments and are never shared or added to reference databases without explicit consent."
+  },
+
+  "terms": {
+    "nav": {
+      "pricing": "Pricing",
+      "signIn": "Sign in"
+    },
+    "title": "Terms of Service",
+    "subtitle": "The legal agreement governing your use of PROBATIO, a forensic music copyright intelligence platform operated by Clandestino Ventures, LLC.",
+    "lastUpdated": "Last Updated: March 2026",
+    "documentId": "Document ID: PROBATIO-TOS-001",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "p1": "By accessing or using PROBATIO — including our website, application, API, or any related services — you agree to be bound by these Terms of Service. If you are using PROBATIO on behalf of an organization, you represent that you have the authority to bind that organization to these terms. If you do not agree to these terms, you must not use the platform."
+      },
+      "serviceDescription": {
+        "title": "2. Service Description",
+        "p1": "PROBATIO is a forensic music copyright intelligence platform that analyzes audio content for similarity across melodic, harmonic, rhythmic, and structural dimensions. The platform uses machine learning models, signal processing algorithms, and vector similarity search to produce quantitative similarity scores and risk assessments.",
+        "p2": "PROBATIO operates in two primary modes: Screening Mode for pre-release similarity checks, and Forensic Mode for detailed, court-oriented evidence packages with chain of custody documentation.",
+        "warningLabel": "Important:",
+        "warning": "PROBATIO is a technical screening and analysis tool. It is not a legal service, does not practice law, and does not provide legal opinions. Similarity scores are mathematical computations, not legal conclusions."
+      },
+      "userResponsibilities": {
+        "title": "3. User Responsibilities & Audio Upload Rights",
+        "intro": "When using PROBATIO, you represent and warrant that:",
+        "items": {
+          "rights": "You have the legal right to upload the audio content you submit — whether as the copyright owner, an authorized licensee, an agent acting on behalf of a rights holder, or under applicable fair use / fair dealing provisions.",
+          "mlProcessing": "You understand that uploaded audio will be processed through machine learning pipelines, including stem separation, feature extraction, and embedding generation, for the purpose of similarity analysis.",
+          "noHarassment": "You will not use PROBATIO's analysis results to harass, defame, or intimidate other creators, nor to pursue frivolous or bad-faith litigation designed to suppress legitimate artistic expression.",
+          "accuracy": "The information you provide in your account and in connection with forensic cases is accurate and complete to the best of your knowledge.",
+          "compliance": "Your use of PROBATIO complies with all applicable laws and regulations in your jurisdiction, including copyright law, data protection law, and rules governing electronic evidence."
+        }
+      },
+      "noLegalAdvice": {
+        "title": "4. No Legal Advice Disclaimer",
+        "critical": "THIS IS A CRITICAL PROVISION. PLEASE READ CAREFULLY.",
+        "items": {
+          "notLegalAdvice": "PROBATIO does NOT provide legal advice. No output of the platform — including similarity scores, risk classifications, forensic reports, or chain of custody documentation — constitutes legal counsel.",
+          "technicalOnly": "Similarity scores are technical analyses representing mathematical comparisons between audio features. A high similarity score does not mean infringement has occurred. A low similarity score does not mean your work is free from all risk.",
+          "courtsDetermine": "Only courts of competent jurisdiction can determine whether copyright infringement has occurred. The legal test for infringement involves factors beyond musical similarity, including access, independent creation, and the scope of copyright protection for the specific elements at issue.",
+          "consultCounsel": "You should consult a qualified attorney before making any legal decisions based on PROBATIO's analysis. This is especially important before sending cease-and-desist letters, filing lawsuits, or making public allegations of copying.",
+          "noGuarantee": "PROBATIO makes no guarantee regarding the legal outcome of any dispute, regardless of the similarity scores or risk levels reported by the platform."
+        },
+        "closing": "By using PROBATIO, you acknowledge that you understand and accept this limitation. Clandestino Ventures, LLC, its officers, employees, and contractors are not liable for any legal action taken based on PROBATIO's analysis."
+      },
+      "dataRetention": {
+        "title": "5. Data Retention Policy",
+        "intro": "We retain your data according to the following schedule, based on the type of analysis performed:",
+        "table": {
+          "tier": "Tier",
+          "audio": "Audio Retention",
+          "reports": "Report Retention",
+          "screening": "Screening",
+          "screeningAudio": "90 days",
+          "screeningReports": "1 year",
+          "forensic": "Forensic",
+          "forensicAudio": "Case duration + 7 years",
+          "forensicReports": "Case duration + 7 years",
+          "reference": "Reference Library",
+          "referenceAudio": "Embeddings only (no raw audio)",
+          "referenceReports": "Indefinite"
+        },
+        "deletion": "For Screening tier analyses, users may initiate deletion of their audio files at any time through account settings. Forensic data is subject to legal hold provisions and cannot be deleted while associated with an active or pending case."
+      },
+      "intellectualProperty": {
+        "title": "6. Intellectual Property",
+        "p1": "Intellectual property ownership under these terms is allocated as follows:",
+        "items": {
+          "userRetains": "You retain all intellectual property rights in audio content you upload. PROBATIO does not claim any ownership, license, or rights over your music beyond what is necessary to provide the analysis service.",
+          "noOwnership": "PROBATIO retains no ownership interest in your audio. Uploaded files are processed, analyzed, and stored only for the purposes described in these terms and our Privacy Policy.",
+          "probatioIP": "PROBATIO's analysis methodology, algorithms, machine learning models, pipeline architecture, user interface, and report templates are the intellectual property of Clandestino Ventures, LLC.",
+          "reportLicense": "You receive a perpetual, non-exclusive license to use analysis reports generated from your submissions for any lawful purpose, including use in legal proceedings. You may not resell or redistribute PROBATIO reports as a standalone product."
+        }
+      },
+      "forensicEvidence": {
+        "title": "7. Forensic Evidence Disclaimer",
+        "p1": "PROBATIO's Forensic Mode includes chain of custody documentation, cryptographic hash verification, and append-only audit logs designed to support the evidentiary integrity of analysis results. These features are built to meet the standards established in Daubert v. Merrell Dow Pharmaceuticals, Inc.",
+        "p2": "However, these features support — they do not replace — proper legal procedures for evidence handling. The admissibility of PROBATIO's analysis in any legal proceeding is determined by the presiding judge or tribunal, based on the applicable rules of evidence and the specific circumstances of the case.",
+        "p3": "PROBATIO makes no guarantee that any analysis, report, or evidence package will be admitted in any particular court or proceeding. Users and their legal counsel are responsible for ensuring that evidence is properly introduced in accordance with applicable procedural rules."
+      },
+      "payment": {
+        "title": "8. Payment & Refunds",
+        "intro": "Payment terms for PROBATIO services are as follows:",
+        "items": {
+          "billing": "Subscription plans are billed monthly via Stripe. Your subscription renews automatically unless canceled before the end of the current billing period.",
+          "forensicFees": "Forensic analysis fees are one-time charges that must be paid in full before processing begins. Forensic pricing is published on our website and confirmed before you authorize the charge.",
+          "failureRefund": "If the PROBATIO analysis pipeline fails to produce a result due to a system error, you will receive a full credit refund to your account. This credit can be applied to future analyses.",
+          "noRefundCompleted": "Completed analyses are non-refundable. Once PROBATIO has successfully processed your audio and delivered a report, the analysis credit or fee is considered earned.",
+          "processor": "All payments are processed by Clandestino Ventures, LLC through Stripe. We do not store your credit card information on our servers."
+        }
+      },
+      "liability": {
+        "title": "9. Limitation of Liability",
+        "p1": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, PROBATIO AND CLANDESTINO VENTURES LLC ARE PROVIDED \"AS IS\" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
+        "p2": "IN NO EVENT SHALL CLANDESTINO VENTURES LLC, ITS OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF PROBATIO, INCLUDING BUT NOT LIMITED TO DAMAGES FOR LOST PROFITS, LOST DATA, BUSINESS INTERRUPTION, OR LEGAL COSTS INCURRED IN RELIANCE ON PROBATIO'S ANALYSIS.",
+        "capLabel": "Maximum Liability:",
+        "cap": "Clandestino Ventures, LLC's total cumulative liability to you for all claims arising from or related to these terms or your use of PROBATIO shall not exceed the total fees you paid to PROBATIO in the twelve (12) months preceding the claim."
+      },
+      "governingLaw": {
+        "title": "10. Governing Law",
+        "p1": "These terms shall be governed by and construed in accordance with the laws of the Commonwealth of Puerto Rico and applicable federal laws of the United States, without regard to conflict of law principles.",
+        "p2": "Any dispute arising from these terms or your use of PROBATIO shall be resolved in the federal or state courts located in Puerto Rico. You consent to the personal jurisdiction of such courts and waive any objection based on inconvenient forum."
+      },
+      "contact": {
+        "title": "11. Contact",
+        "intro": "For questions about these Terms of Service or to report a violation, contact us at:",
+        "emailLabel": "Email:",
+        "entityLabel": "Entity:",
+        "entity": "Clandestino Ventures, LLC, Puerto Rico"
+      }
+    },
+    "closing": "These Terms of Service constitute the entire agreement between you and Clandestino Ventures, LLC regarding your use of PROBATIO. If any provision is found unenforceable, the remaining provisions continue in full force and effect. Our failure to enforce any right or provision does not constitute a waiver of that right or provision.",
+    "copyright": "Clandestino Ventures, LLC \u00a9 2026. Document version 1.0.0."
+  },
+
+  "privacy": {
+    "nav": {
+      "pricing": "Pricing",
+      "signIn": "Sign in"
+    },
+    "title": "Privacy Policy",
+    "subtitle": "How PROBATIO collects, processes, stores, and protects your data. We believe transparency about data handling is non-negotiable, especially for a platform that processes copyrighted audio.",
+    "lastUpdated": "Last Updated: March 2026",
+    "documentId": "Document ID: PROBATIO-PRIV-001",
+    "sections": {
+      "informationCollected": {
+        "title": "1. Information We Collect",
+        "intro": "PROBATIO collects the following categories of information to provide and improve our forensic music copyright intelligence service:",
+        "account": {
+          "title": "Account Information",
+          "email": "Email address (used for authentication, billing, and service communications)",
+          "name": "Full name (used for account identification and forensic report attribution)",
+          "organization": "Organization name (optional; used for team features and invoice generation)",
+          "language": "Language preference (English or Spanish; used to deliver localized interface and reports)"
+        },
+        "audio": {
+          "title": "Audio Files",
+          "description": "Audio files you upload for analysis are stored in encrypted cloud storage. Files are processed through our analysis pipeline and retained according to the schedule described in our Terms of Service. Audio files are never added to our reference database without your explicit, separate consent."
+        },
+        "analysis": {
+          "title": "Analysis Data",
+          "results": "Similarity analysis results including per-dimension scores (melody, harmony, rhythm, structure)",
+          "scores": "Overall risk classification scores and confidence intervals",
+          "reports": "Generated reports (PDF, CSV) including matched segments and recommendations",
+          "chainOfCustody": "Chain of custody metadata: cryptographic hashes, timestamps, pipeline versions, and audit log entries"
+        },
+        "payment": {
+          "title": "Payment Information",
+          "description": "Payments are processed through Stripe. PROBATIO does not store credit card numbers, CVVs, or full card details on our servers. We retain only Stripe customer IDs, subscription status, and invoice records necessary for billing and account management."
+        },
+        "usage": {
+          "title": "Usage Data",
+          "description": "We collect anonymized usage analytics through PostHog to improve the platform experience. This includes page views, feature usage patterns, and session duration. Analytics data is aggregated and cannot be used to identify individual users. You may opt out of analytics tracking through your account settings."
+        }
+      },
+      "dataProcessing": {
+        "title": "2. How We Process Your Data",
+        "intro": "When you upload audio for analysis, it passes through our deterministic ML pipeline. Understanding each step helps you know exactly what happens to your content:",
+        "pipeline": {
+          "demucs": "Source Separation — Neural separation engine isolates vocal, bass, drum, and other stems",
+          "crepe": "Pitch Extraction — Neural pitch tracker extracts frame-level fundamental frequency from vocal stems",
+          "clap": "Embedding Generation — Neural audio embedding model produces semantic representations for similarity search",
+          "librosa": "Feature Analysis — Spectral analysis engine extracts chroma, onset, beat, and structural features from each stem",
+          "reports": "Report Generation — Anthropic Claude API synthesizes human-readable analysis narratives from raw data",
+          "musicbrainz": "Rights Lookup — Music metadata enrichment service provides rights holder information for identified works"
+        },
+        "gpuNote": "All ML inference runs on Modal.com GPU infrastructure (NVIDIA A10G / A100). Processing is ephemeral — GPU containers are destroyed after each job. No audio data persists on GPU infrastructure."
+      },
+      "thirdParty": {
+        "title": "3. Third-Party Services",
+        "intro": "PROBATIO relies on the following third-party services to operate. Each service receives only the minimum data necessary for its function:",
+        "table": {
+          "service": "Service",
+          "purpose": "Purpose",
+          "location": "Data Location"
+        },
+        "services": {
+          "supabase": "Database, authentication, and encrypted file storage",
+          "modal": "GPU compute for ML pipeline inference",
+          "anthropic": "Natural language report generation via Claude API",
+          "stripe": "Payment processing and subscription management",
+          "vercel": "Application hosting and global CDN delivery",
+          "posthog": "Anonymized product analytics",
+          "sentry": "Application error monitoring and diagnostics"
+        },
+        "locations": {
+          "us": "US",
+          "eu": "EU",
+          "global": "Global CDN"
+        }
+      },
+      "dataRetention": {
+        "title": "4. Data Retention",
+        "p1": "Our data retention schedule is detailed in Section 5 of our Terms of Service. In summary: Screening audio is retained for 90 days, screening reports for 1 year, forensic data for the case duration plus 7 years, and reference library data is stored as embeddings only (no raw audio retained).",
+        "p2": "When retention periods expire, data is permanently deleted using cryptographic erasure — encryption keys are destroyed, rendering stored ciphertext unrecoverable. Deletion is logged in our audit trail."
+      },
+      "yourRights": {
+        "title": "5. Your Rights",
+        "intro": "You have the following rights regarding your personal data and content stored on PROBATIO:",
+        "rights": {
+          "access": {
+            "title": "Right of Access.",
+            "description": "You may request a complete copy of all personal data we hold about you, including account information, analysis history, and any associated metadata."
+          },
+          "correction": {
+            "title": "Right of Correction.",
+            "description": "You may update or correct your account information at any time through your account settings, or by contacting us directly."
+          },
+          "deletion": {
+            "title": "Right of Deletion.",
+            "description": "You may request deletion of your account and all associated data. For Screening tier data, deletion is processed within 30 days. Forensic data subject to legal hold cannot be deleted until the hold is released — this exception exists to preserve evidence integrity."
+          },
+          "export": {
+            "title": "Right of Data Export.",
+            "description": "You may export your analysis reports, account data, and metadata in standard formats (JSON, CSV, PDF) at any time through your account settings."
+          },
+          "optOut": {
+            "title": "Right to Opt Out of Analytics.",
+            "description": "You may disable PostHog analytics tracking through your account privacy settings. This will not affect the functionality of the analysis platform."
+          }
+        }
+      },
+      "security": {
+        "title": "6. Security",
+        "intro": "PROBATIO implements the following security measures to protect your data:",
+        "measures": {
+          "tls": "TLS 1.3 encryption for all data in transit between your browser, our servers, and third-party services",
+          "encryption": "AES-256 encryption at rest for all data stored in Supabase, including audio files, analysis results, and account information",
+          "rls": "Row-Level Security (RLS) database policies ensuring strict tenant isolation — users can only access their own data, enforced at the database layer",
+          "audit": "Append-only audit logs with cryptographic hash chaining (Merkle chain), protected by database triggers that prevent modification or deletion of any audit entry"
+        }
+      },
+      "children": {
+        "title": "7. Children's Privacy",
+        "description": "PROBATIO is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has created an account or submitted data to PROBATIO, please contact us at privacy@probatio.audio and we will promptly delete the associated data."
+      },
+      "changes": {
+        "title": "8. Changes to This Policy",
+        "p1": "We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or business operations. When we make material changes — such as introducing new third-party processors, changing data retention periods, or modifying your rights — we will notify you via email at least 30 days before the changes take effect.",
+        "p2": "Non-material changes (such as clarifications or formatting improvements) may be made without advance notice but will be reflected in the \"Last Updated\" date at the top of this document."
+      },
+      "contact": {
+        "title": "9. Contact",
+        "intro": "For questions about this Privacy Policy, to exercise your data rights, or to report a privacy concern, contact us at:",
+        "emailLabel": "Email:",
+        "entityLabel": "Entity:",
+        "entity": "Clandestino Ventures, LLC, Puerto Rico"
+      }
+    },
+    "closing": "This Privacy Policy applies to all users of PROBATIO regardless of location. Where local privacy regulations provide additional rights beyond those described here, those additional rights apply. If any provision of this policy is found unenforceable, the remaining provisions continue in full force and effect.",
+    "copyright": "Clandestino Ventures, LLC \u00a9 2026. Document version 1.0.0."
+  },
+
+  "clearance": {
+    "modeSelector": {
+      "standard": {
+        "title": "Compare Two Tracks",
+        "description": "Upload a track and compare against another. Standard similarity analysis with 4-dimension scoring.",
+        "cost": "1 credit"
+      },
+      "clearance": {
+        "title": "Pre-Release Clearance",
+        "description": "Scan your track against entire catalogs before release. Find potential conflicts automatically.",
+        "cost": "2 credits"
+      }
+    },
+    "catalogSelector": {
+      "heading": "Select catalogs to scan against",
+      "platformLibrary": "Platform Reference Library",
+      "tracksIndexed": "{indexed} of {total} tracks indexed",
+      "noCatalogs": "No catalogs available.",
+      "noCatalogsHint": "Create a catalog and add reference tracks to enable clearance scanning.",
+      "scanningAgainst": "Scanning against:"
+    },
+    "report": {
+      "heading": "PRE-RELEASE CLEARANCE REPORT",
+      "matchesFound": "Matches Found",
+      "highestSimilarity": "Highest Similarity",
+      "riskLevel": "Risk Level",
+      "potentialConflicts": "POTENTIAL CONFLICTS",
+      "noMatches": "No matches above screening threshold",
+      "noMatchesDescription": "Your track did not match any reference tracks in the scanned catalogs.",
+      "status": {
+        "cleared": {
+          "label": "CLEARED",
+          "description": "No significant matches found. Safe to release."
+        },
+        "conditional": {
+          "label": "CONDITIONAL",
+          "description": "Moderate matches detected. Review before release."
+        },
+        "blocked": {
+          "label": "BLOCKED",
+          "description": "High-similarity matches found. Do not release without clearance."
+        }
+      }
+    },
+    "detail": {
+      "statusBadge": {
+        "cleared": "CLEARED",
+        "conditional": "CONDITIONAL — Review Required",
+        "blocked": "BLOCKED — Do Not Release"
+      },
+      "statusDescription": {
+        "cleared": "No significant matches found. Safe to release.",
+        "conditional": "Moderate matches detected. Review recommended before release.",
+        "blocked": "High-similarity matches found. Do not release without clearance."
+      },
+      "catalogsScanned": "Catalogs Scanned",
+      "catalogsNone": "No catalog information available.",
+      "catalogLoading": "Loading catalog details..."
+    }
+  },
+
+  "methodologyPage": {
+    "title": "Methodology",
+    "subtitle": "A comprehensive overview of Probatio's forensic analysis pipeline, designed for transparency, reproducibility, and Daubert compliance.",
+    "pipelineVersion": "Pipeline Version: 1.0.0",
+    "lastUpdated": "Last Updated: March 2026",
+    "documentId": "Document ID: PROBATIO-METH-001",
+    "sections": {
+      "pipelineOverview": {
+        "title": "1. Pipeline Overview",
+        "description": "Probatio employs an eight-stage deterministic pipeline for audio similarity analysis. Each stage is independently auditable, with cryptographic hash verification at every boundary. The pipeline is versioned and pinned — the same input processed with the same pipeline version will always produce the same output.",
+        "steps": [
+          "Normalization (44.1kHz, 16-bit, mono)",
+          "Acoustic Fingerprinting",
+          "Source Separation (4-stem isolation)",
+          "Feature Extraction (pitch, chroma, rhythm, structure)",
+          "Neural Embedding Generation",
+          "High-Dimensional Similarity Search",
+          "Rights Metadata Enrichment",
+          "Report Generation"
+        ]
+      },
+      "normalization": {
+        "title": "2. Normalization",
+        "description": "All input audio is normalized to a canonical format before analysis to ensure comparability across different recording conditions. The normalization parameters are logged in the chain of custody.",
+        "specs": [
+          "Sample rate: 44,100 Hz (CD quality)",
+          "Bit depth: 16-bit signed integer",
+          "Channels: mono (stereo is summed)",
+          "Loudness: -14 LUFS (EBU R128)",
+          "DC offset removal applied"
+        ]
+      },
+      "sourceSeparation": {
+        "title": "3. Source Separation",
+        "p1": "Source separation isolates four stems — vocals, drums, bass, and other instruments — using a proprietary neural separation engine optimized for music production quality. This allows dimension-specific analysis: melodic comparison uses vocal stems, harmonic analysis uses the combined pitched content, and rhythmic analysis focuses on percussion patterns.",
+        "p2": "The model version is pinned and logged. Deterministic mode is enforced via fixed random seeds and deterministic algorithms. Compute environment parameters are recorded for reproducibility verification."
+      },
+      "featureExtraction": {
+        "title": "4. Feature Extraction",
+        "intro": "Multiple feature extraction methods are applied to each stem:",
+        "features": {
+          "pitch": { "label": "Pitch contour:", "description": "Neural pitch tracking provides frame-level fundamental frequency estimation with confidence scores." },
+          "chroma": { "label": "Chroma features:", "description": "Constant-Q chromagram captures harmonic content independent of octave." },
+          "onset": { "label": "Onset detection:", "description": "Spectral flux onset strength function identifies rhythmic event positions." },
+          "beat": { "label": "Beat tracking:", "description": "Dynamic programming beat tracker estimates tempo and beat positions." },
+          "structure": { "label": "Structural segmentation:", "description": "Spectral clustering identifies structural boundaries (verse, chorus, bridge)." }
+        }
+      },
+      "similarityScoring": {
+        "title": "5. Similarity Scoring",
+        "intro": "Similarity is computed across four dimensions, each using methods appropriate to the musical domain:",
+        "melody": { "title": "Melody (weight: 0.35)", "description": "Dynamic Time Warping (DTW) alignment of pitch contours extracted from vocal stems. Normalized by path length. Tolerant of key transposition up to 12 semitones." },
+        "harmony": { "title": "Harmony (weight: 0.25)", "description": "Cross-correlation of chroma feature matrices. Captures chord progression similarity independent of instrumentation." },
+        "rhythm": { "title": "Rhythm (weight: 0.20)", "description": "Onset pattern correlation with tempo normalization. Identifies rhythmic figure similarity across different tempos." },
+        "timbre": { "title": "Timbre (weight: 0.20)", "description": "Neural audio embedding comparison captures timbral and textural similarity at the production level." }
+      },
+      "riskClassification": {
+        "title": "6. Risk Classification",
+        "intro": "Overall similarity scores are classified into four risk levels using calibrated thresholds:",
+        "tableHeaders": { "level": "Level", "melody": "Melody", "overall": "Overall", "action": "Action" },
+        "critical": { "level": "Critical", "melody": "≥ 0.85", "overall": "≥ 0.90", "action": "Immediate clearance required" },
+        "high": { "level": "High", "melody": "≥ 0.70", "overall": "≥ 0.75", "action": "Legal review recommended" },
+        "medium": { "level": "Medium", "melody": "≥ 0.50", "overall": "≥ 0.55", "action": "Review recommended" },
+        "low": { "level": "Low", "melody": "< 0.50", "overall": "< 0.55", "action": "No action required" },
+        "note": "Threshold Version: 1.0.0. All thresholds are versioned and logged in the chain of custody for each analysis."
+      },
+      "chainOfCustody": {
+        "title": "7. Chain of Custody",
+        "intro": "Every step in the analysis pipeline generates an audit log entry with:",
+        "entries": [
+          "SHA-256 hash of the input data",
+          "SHA-256 hash of the output data",
+          "Cryptographic timestamp (ISO 8601)",
+          "Pipeline version and component versions",
+          "Link to previous audit entry (Merkle chain)"
+        ],
+        "auditLogNote": "The audit log is append-only — database triggers prevent modification or deletion of any entry. Each entry's hash incorporates the hash of the previous entry, creating a tamper-evident chain that can be independently verified via the public verification endpoint."
+      },
+      "daubertCompliance": {
+        "title": "8. Daubert Compliance",
+        "intro": "Probatio's methodology is designed to satisfy the five Daubert factors for admissibility of expert testimony:",
+        "factors": {
+          "testability": { "label": "1. Testability and falsifiability:", "description": "The deterministic pipeline can be independently verified. Same input + same version = same output." },
+          "peerReview": { "label": "2. Peer review:", "description": "All underlying methods are grounded in peer-reviewed research in music information retrieval and signal processing. Pipeline methodology is publicly documented." },
+          "errorRate": { "label": "3. Known error rate:", "description": "Classification accuracy is measured against known test corpora and reported with confidence intervals." },
+          "standards": { "label": "4. Standards and controls:", "description": "Normalization, versioning, and hash verification ensure consistent application of the methodology." },
+          "acceptance": { "label": "5. General acceptance:", "description": "Component methods (DTW, chroma analysis, spectral feature extraction) are widely accepted in the music information retrieval research community." }
+        }
+      }
+    },
+    "cta": {
+      "title": "Methodology Documentation",
+      "description": "Request the complete methodology whitepaper for legal review and Daubert compliance evaluation.",
+      "button": "Request Whitepaper"
+    },
+    "disclaimer": "This document describes the Probatio analysis methodology for informational purposes. While the methodology is designed to meet court evidentiary standards, the admissibility of any specific analysis is determined by the presiding judge in each proceeding. Probatio analysis does not constitute legal advice.",
+    "copyright": "Clandestino Ventures, LLC © 2026. Document version 1.0.0."
+  },
+
+  "segmentAlignment": {
+    "title": "Segment Alignment Evidence",
+    "summary": "{count} matching segments found. Highest: {dimension} {score} at {timeA} (A) → {timeB} (B)",
+    "noEvidence": "No segment-level evidence found. Overall similarity score: {score}",
+    "filters": {
+      "all": "All",
+      "melody": "Melody",
+      "harmony": "Harmony",
+      "rhythm": "Rhythm",
+      "timbre": "Timbre",
+      "lyrics": "Lyrics"
+    },
+    "columns": {
+      "sourceTime": "Source Time",
+      "targetTime": "Target Time",
+      "dimension": "Dimension",
+      "similarity": "Similarity",
+      "dtwDistance": "DTW Distance",
+      "transposition": "Transposition"
+    },
+    "playA": "Play source segment",
+    "playB": "Play target segment",
+    "playing": "Playing...",
+    "audioUnavailable": "Audio no longer available",
+    "exportCsv": "Export Evidence CSV",
+    "pagination": {
+      "showing": "Showing {from}-{to} of {total} evidence points",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "semitones": "{n} semitones",
+    "timeline": {
+      "title": "Evidence Timeline",
+      "trackA": "Track A: {title}",
+      "trackB": "Track B: {title}",
+      "tooltip": "{dimension}: {score} | {timeA} (A) → {timeB} (B)",
+      "noData": "No timeline data available"
+    },
+    "collapse": "Collapse evidence",
+    "expand": "Expand evidence",
+    "resolution": {
+      "label": "Resolution",
+      "bar": "Bar (2s)",
+      "phrase": "Phrase (8s)",
+      "song": "Song",
+      "max": "Max",
+      "barDescription": "Short hooks, riffs, 2-bar loops",
+      "phraseDescription": "Verse/chorus phrases",
+      "songDescription": "Full song structure",
+      "maxDescription": "Maximum similarity across all resolutions"
+    }
+  },
+
+  "tour": {
+    "upload": "Upload Your First Track",
+    "uploadDesc": "Drag any audio file here to start an analysis. Supports MP3, WAV, FLAC, and more.",
+    "mode": "Choose Your Mode",
+    "modeDesc": "Screening for quick checks. Clearance for pre-release. Forensic for litigation.",
+    "catalogs": "Your Reference Catalogs",
+    "catalogsDesc": "Upload your catalog to enable clearance scanning.",
+    "team": "Manage Your Team",
+    "teamDesc": "Invite A&R managers and legal team. Assign roles.",
+    "api": "API Integration",
+    "apiDesc": "Connect Probatio to your CI/CD pipeline.",
+    "evidence": "Download Evidence",
+    "evidenceDesc": "Every analysis produces court-ready evidence.",
+    "skip": "Skip Tour",
+    "next": "Next",
+    "done": "Done"
+  },
+
+  "shortcuts": {
+    "title": "Keyboard Shortcuts",
+    "global": "Global",
+    "analysisDetail": "Analysis Detail",
+    "audioPlayback": "Audio Playback"
+  },
+
+  "auditExport": {
+    "title": "Compliance & Audit Export",
+    "description": "Generate an audit report of all organization activity for compliance review.",
+    "from": "From",
+    "to": "To",
+    "format": "Format",
+    "download": "Export",
+    "exporting": "Exporting..."
+  },
+
+  "apiKeys": {
+    "title": "API Keys",
+    "createKey": "Create Key",
+    "noKeys": "No API keys yet. Create one for programmatic access.",
+    "keyName": "Key Name",
+    "keyNamePlaceholder": "e.g., CI/CD Pipeline, Distribution Hook",
+    "permissions": "Permissions",
+    "expiration": "Expiration",
+    "noExpiration": "No expiration",
+    "days": "days",
+    "year": "year",
+    "generate": "Generate Key",
+    "copyWarning": "Save this key now. It will not be shown again.",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "revoke": "Revoke",
+    "rotate": "Rotate",
+    "revokeConfirm": "Are you sure you want to revoke this API key? Any integrations using it will stop working.",
+    "rotateConfirm": "This will revoke the current key and generate a new one with the same permissions. Proceed?"
+  },
+
+  "organization": {
+    "title": "Organization",
+    "planRequired": "Organization management requires an Enterprise plan.",
+    "upgrade": "Upgrade to Enterprise",
+    "createTitle": "Create Your Organization",
+    "createDescription": "Set up your team workspace. Invite members, manage catalogs, and collaborate on analyses.",
+    "createButton": "Create Organization",
+    "orgName": "Organization Name",
+    "orgNamePlaceholder": "e.g., Rimas Entertainment",
+    "orgSlug": "URL Slug",
+    "teamMembers": "Team Members",
+    "inviteMember": "Invite Member",
+    "inviteTitle": "Invite Team Member",
+    "inviteEmail": "Email Address",
+    "inviteRole": "Role",
+    "sendInvite": "Send Invite",
+    "removeMember": "Remove Member",
+    "removeMemberConfirm": "Are you sure you want to remove this member from the organization?",
+    "dangerZone": "Danger Zone",
+    "transferOwnership": "Transfer Ownership",
+    "transferWarning": "This will make the selected member the new owner. You will be downgraded to admin. This action cannot be undone.",
+    "transferTo": "Transfer to",
+    "selectMember": "Select a member...",
+    "confirmTransfer": "Transfer Ownership",
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "member": "Member"
+    },
+    "statsMembers": "Members",
+    "statsCatalogs": "Catalogs",
+    "statsAnalyses": "Analyses"
+  },
+
+  "visualizations": {
+    "heatmap": "Similarity Heatmap",
+    "pianoRoll": "Piano Roll: Melody Comparison",
+    "spectrogram": "Spectrogram",
+    "trackA": "Track A (original)",
+    "trackB": "Track B (comparison)",
+    "showCorrected": "Show transposition-corrected",
+    "noPitchData": "No pitch data available for piano roll",
+    "similarity": "similarity"
+  },
+
+  "syncPlayer": {
+    "title": "Synchronized Playback",
+    "linked": "Linked",
+    "unlinked": "Unlinked",
+    "playBoth": "Play both tracks simultaneously",
+    "pauseBoth": "Pause both tracks",
+    "stop": "Stop and reset",
+    "trackA": "Track A",
+    "trackB": "Track B",
+    "regions": "Regions",
+    "evidenceQuickPlay": "Evidence Quick-Play",
+    "loading": "Loading audio...",
+    "audioUnavailable": "Audio playback not available. Upload the original files to enable synchronized playback.",
+    "keyboardHelp": "Keyboard: Space = play/pause, Left/Right = seek \u00b15s",
+    "volumeA": "Volume Track A",
+    "volumeB": "Volume Track B"
+  },
+
+  "signing": {
+    "verified": "VERIFIED — This document was generated by Probatio and has not been modified.",
+    "invalid": "INVALID — This document's signature does not match. The file may have been modified.",
+    "notFound": "NOT FOUND — This document was not found in any Probatio chain of custody.",
+    "verifyDocument": "Verify Signed Document",
+    "dragDrop": "Drag & drop a PDF or ZIP to verify its signature",
+    "orPaste": "Or paste the signature and hash below:",
+    "hash": "Document Hash (SHA-256)",
+    "signature": "Signature (Base64)",
+    "verify": "Verify Signature",
+    "algorithm": "Algorithm: Ed25519",
+    "signedAt": "Signed at: {date}",
+    "publicKey": "Public key available at probatio.audio/api/verify/public-key"
+  },
+
+  "reproduce": {
+    "title": "Reproducibility Verification",
+    "button": "Reproduce Analysis",
+    "confirm": "This will re-run the complete analysis pipeline to verify reproducibility. This typically takes 2-3 minutes. Proceed?",
+    "running": "Reproducing... comparing step-by-step",
+    "match": "REPRODUCIBLE — All steps produce matching outputs",
+    "mismatch": "MISMATCH — Some steps produced different outputs",
+    "failed": "Reproduction failed",
+    "pending": "Reproduction queued",
+    "step": "Step",
+    "originalHash": "Original",
+    "reproducedHash": "Reproduced",
+    "matchLabel": "Match",
+    "approximate": "Approximate match: values within tolerance",
+    "tolerance": "Embeddings and scores from GPU inference may have minor floating-point variations (< 0.00001). This is expected and does not affect conclusions.",
+    "reproducedAt": "Reproduced at: {date}",
+    "pipelineVersion": "Pipeline version: {version} (same as original)",
+    "includeInEvidence": "Include in Evidence Package",
+    "rateLimit": "Maximum 3 reproductions per day.",
+    "planRequired": "Reproduction requires a Professional or Enterprise plan.",
+    "audioUnavailable": "Original audio file no longer available. Cannot reproduce."
+  },
+
+  "certificate": {
+    "title": "Certificate of Pre-Release Clearance",
+    "download": "Download Certificate",
+    "tooltip": "Single-page certificate with QR verification code",
+    "fullReport": "Full Report",
+    "verdictCleared": "CLEARED FOR RELEASE",
+    "verdictConditional": "CONDITIONAL CLEARANCE — REVIEW REQUIRED",
+    "verdictBlocked": "CLEARANCE NOT GRANTED",
+    "verifyLabel": "Scan to verify this certificate's authenticity",
+    "verifyAt": "at probatio.audio/verify"
+  },
+
+  "monitoring": {
+    "title": "Continuous Monitoring",
+    "enable": "Enable Continuous Monitoring",
+    "disable": "Disable Monitoring",
+    "enabled": "Monitoring Active",
+    "disabled": "Monitoring Disabled",
+    "description": "This track will be automatically re-scanned weekly as new tracks are added to the monitored catalogs.",
+    "enterpriseOnly": "Continuous monitoring requires an Enterprise plan.",
+    "lastChecked": "Last checked: {date}",
+    "noNewMatches": "No new matches since last check."
+  },
+
+  "alerts": {
+    "title": "Clearance Alerts",
+    "unread": "{count} unread",
+    "noAlerts": "No alerts. Your monitored tracks are clear.",
+    "markRead": "Mark as read",
+    "dismiss": "Dismiss",
+    "viewAnalysis": "View Analysis",
+    "viewAll": "View All Alerts",
+    "severity": {
+      "info": "Info",
+      "warning": "Warning",
+      "critical": "Critical"
+    },
+    "types": {
+      "new_match": "New match detected",
+      "score_increase": "Score increased",
+      "status_change": "Status changed"
+    },
+    "timeAgo": "{time} ago",
+    "weeklyScanComplete": "Weekly scan complete for {count} monitored tracks. No new matches."
+  },
+
+  "clearanceBatch": {
+    "title": "Bulk Clearance",
+    "subtitle": "Scan multiple tracks against your catalogs",
+    "createBatch": "New Batch Scan",
+    "batchName": "Batch Name",
+    "batchNamePlaceholder": "e.g., Mi Album Nuevo — Pre-Release",
+    "selectCatalogs": "Select Catalogs to Scan Against",
+    "addTracks": "Add Tracks",
+    "tracksAdded": "{count} tracks added",
+    "maxTracks": "Maximum {max} tracks per batch ({plan} plan)",
+    "creditsNeeded": "Credits needed: {credits} ({perTrack} per track)",
+    "startScan": "Start Clearance Scan",
+    "estimatedTime": "Estimated time: ~{minutes} minutes",
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "partial": "Partial",
+      "failed": "Failed"
+    },
+    "verdict": {
+      "cleared": "ALL CLEARED",
+      "conditional": "REVIEW REQUIRED",
+      "blocked": "BLOCKED"
+    },
+    "verdictDescription": {
+      "cleared": "{cleared} of {total} tracks cleared for release",
+      "conditional": "{conditional} track(s) need review, {cleared} cleared",
+      "blocked": "{blocked} track(s) blocked — do not release without clearance"
+    },
+    "trackTable": {
+      "track": "Track",
+      "status": "Status",
+      "verdict": "Verdict",
+      "score": "Score",
+      "detail": "Detail",
+      "queued": "Queued",
+      "running": "Running",
+      "done": "Done",
+      "failed": "Failed"
+    },
+    "downloadReport": "Download Batch Report (PDF)",
+    "backToBatches": "Back to Clearance",
+    "empty": "No batch scans yet. Create one to scan multiple tracks.",
+    "planRequired": "Bulk clearance requires a Professional or Enterprise plan.",
+    "insufficientCredits": "Insufficient credits. Need {needed}, have {balance}."
+  },
+
+  "catalogs": {
+    "title": "Reference Catalogs",
+    "subtitle": "Your organization's reference track libraries for clearance scans",
+    "newCatalog": "New Catalog",
+    "uploadTracks": "Upload Tracks",
+    "startIngestion": "Start Ingestion",
+    "reprocessFailed": "Re-process Failed",
+    "viewTracks": "View Tracks",
+    "viewProgress": "View Progress",
+    "deleteCatalog": "Delete",
+    "createDialog": {
+      "title": "Create New Catalog",
+      "name": "Catalog Name",
+      "namePlaceholder": "e.g., Universal Publishing 2024",
+      "description": "Description (optional)",
+      "descriptionPlaceholder": "Internal reference library for clearance scans",
+      "create": "Create Catalog"
+    },
+    "status": {
+      "pending": "Pending",
+      "ingesting": "Ingesting",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "stats": {
+      "tracks": "{count} tracks",
+      "processed": "{count} processed",
+      "failed": "{count} failed",
+      "withEmbeddings": "{count} with embeddings",
+      "cost": "Cost: ${amount}",
+      "created": "Created {date}"
+    },
+    "costPreview": {
+      "title": "Ingestion Cost Estimate",
+      "tracks": "Tracks to process",
+      "estimatedCost": "Estimated cost",
+      "estimatedTime": "Estimated time",
+      "includedInPlan": "Included in your Enterprise plan",
+      "confirm": "Start Processing",
+      "cancel": "Cancel"
+    },
+    "trackList": {
+      "title": "Title",
+      "artist": "Artist",
+      "status": "Status",
+      "isrc": "ISRC",
+      "search": "Search tracks...",
+      "filterStatus": "Status",
+      "filterAll": "All",
+      "showing": "Showing {from}-{to} of {total}",
+      "ready": "Ready",
+      "processing": "Processing",
+      "pending": "Pending",
+      "failed": "Failed"
+    },
+    "upload": {
+      "dropzone": "Drop audio files here or click to browse",
+      "formats": "Accepts MP3, WAV, FLAC, M4A (max 50MB each)",
+      "maxFiles": "Maximum 100 files per upload",
+      "uploading": "Uploading {current} of {total}...",
+      "complete": "{count} tracks uploaded successfully"
+    },
+    "empty": "No catalogs yet. Create one to get started.",
+    "planRequired": "Catalog management requires an Enterprise plan.",
+    "upgrade": "Upgrade to Enterprise",
+    "planUsage": "Plan: Enterprise · {included} tracks/mo included · {used} used this month",
+    "backToCatalogs": "Back to Catalogs",
+    "uploadMore": "Upload More Tracks"
+  },
+
+  "genre": {
+    "detected": "Detected: {genre} ({confidence}% confidence)",
+    "adjustedLabel": "Genre-Adjusted",
+    "rawLabel": "Raw",
+    "baseline": "Baseline: {baseline}",
+    "adjustment": "{raw} raw → {adjusted} adjusted ({genre} baseline: {baseline})",
+    "unknown": "Unknown Genre",
+    "badge": {
+      "reggaeton": "Reggaeton",
+      "hiphop": "Hip-Hop / Trap",
+      "pop": "Pop",
+      "rnb": "R&B / Neo-Soul",
+      "edm": "EDM / House",
+      "rock": "Rock",
+      "classical": "Classical",
+      "jazz": "Jazz",
+      "country": "Country",
+      "latin": "Latin Pop / Salsa",
+      "funk": "Funk / Disco",
+      "kpop": "K-Pop / J-Pop"
+    }
+  }
+}
