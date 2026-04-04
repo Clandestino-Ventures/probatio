@@ -744,7 +744,7 @@ export type ReproductionResultUpdate = WithOptionalFields<ReproductionResultInse
 // api_keys
 // ────────────────────────────────────────────────────────────────────────────
 
-export type ApiKeyPermission = "analyze" | "catalogs" | "reports" | "forensic" | "verify" | "admin";
+export type ApiKeyPermission = "analyze" | "catalogs" | "reports" | "forensic" | "verify" | "integrations" | "admin";
 
 export interface ApiKeyRow {
   id: string;

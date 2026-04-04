@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 import { PostHogProvider } from "@/components/posthog-provider";
 import "./globals.css";
 
@@ -108,6 +109,7 @@ export default async function RootLayout({
           <PostHogProvider>
             {children}
           </PostHogProvider>
+          <Analytics />
           <Toaster
             position="bottom-right"
             toastOptions={{
