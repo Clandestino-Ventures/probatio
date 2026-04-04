@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { formatFileSize, truncateHash } from "@/lib/utils";
 import { SUPPORTED_FORMATS, MAX_FILE_SIZE } from "@/lib/constants";
+import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui";
 import { Upload, FileAudio, X, Hash } from "lucide-react";
 
@@ -97,22 +98,44 @@ export function UploadZone({ className }: UploadZoneProps) {
   );
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (!file || !fileHash) return;
     setUploading(true);
     setError(null);
 
     try {
-      const formData = new FormData();
-      formData.append("file", file);
-      if (fileHash) formData.append("fileHash", fileHash);
+      // Upload file directly to Supabase Storage (bypasses Vercel 4.5MB body limit)
+      const supabase = createClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) throw new Error("Session expired. Please sign in again.");
 
+      const pendingPath = `${session.user.id}/pending/${fileHash}/${file.name}`;
+      const { error: storageError } = await supabase.storage
+        .from("probatio-audio")
+        .upload(pendingPath, file, {
+          contentType: file.type || "audio/mpeg",
+          upsert: true,
+        });
+
+      if (storageError) {
+        throw new Error(`Storage upload failed: ${storageError.message}`);
+      }
+
+      // Send metadata-only request to API (no file in body)
       const res = await fetch("/api/analyze", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          storagePath: pendingPath,
+          fileName: file.name,
+          fileHash,
+          fileSize: file.size,
+          contentType: file.type || "audio/mpeg",
+          mode: "screening",
+        }),
       });
 
       if (!res.ok) {
-        const data = await res.json();
+        const data = await res.json().catch(() => ({ error: "Upload failed" }));
         throw new Error(data.error || "Upload failed");
       }
 

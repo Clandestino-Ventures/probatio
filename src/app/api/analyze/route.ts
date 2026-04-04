@@ -28,6 +28,9 @@ import {
 } from "@/lib/constants";
 import type { AnalysisMode } from "@/types/database";
 
+// Allow up to 60s for downloading and verifying large audio files from storage
+export const maxDuration = 60;
+
 // ────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ────────────────────────────────────────────────────────────────────────────
@@ -109,26 +112,37 @@ export async function POST(request: Request) {
       .single();
 
     // ── STEP 2: PARSE + VALIDATE REQUEST ─────────────────────────────────
-    const formData = await request.formData();
-    const file = formData.get("file") as File | null;
-    const clientHash = ((formData.get("client_hash") as string) ??
-      (formData.get("fileHash") as string) ??
-      "").toLowerCase();
-    const mode = ((formData.get("mode") as string) ?? "screening") as AnalysisMode;
-    const title = (formData.get("title") as string) ?? "";
-    const catalogIdsRaw = formData.get("catalog_ids") as string | null;
-    const catalogIds: string[] = catalogIdsRaw ? JSON.parse(catalogIdsRaw) : [];
+    // Client uploads the file directly to Supabase Storage (to bypass
+    // Vercel's 4.5 MB serverless body-size limit), then sends metadata
+    // here as JSON.
+    const body = await request.json();
+    const pendingPath = body.storagePath as string;
+    const fileName = body.fileName as string;
+    const clientHash = ((body.fileHash as string) ?? "").toLowerCase();
+    const fileSize = (body.fileSize as number) ?? 0;
+    const contentType = (body.contentType as string) || "audio/mpeg";
+    const mode = ((body.mode as string) ?? "screening") as AnalysisMode;
+    const title = (body.title as string) ?? "";
+    const catalogIds: string[] = body.catalogIds ?? [];
 
-    // Validate file exists
-    if (!file || !(file instanceof File)) {
+    // Validate required fields
+    if (!pendingPath || !fileName || !clientHash) {
       return NextResponse.json(
-        { error: "No audio file provided.", code: "BAD_REQUEST" },
+        { error: "Missing required fields.", code: "BAD_REQUEST" },
+        { status: 400 }
+      );
+    }
+
+    // Validate storage path belongs to authenticated user
+    if (!pendingPath.startsWith(`${user.id}/pending/`)) {
+      return NextResponse.json(
+        { error: "Invalid storage path.", code: "BAD_REQUEST" },
         { status: 400 }
       );
     }
 
     // Validate file size
-    if (file.size > MAX_FILE_SIZE) {
+    if (fileSize > MAX_FILE_SIZE) {
       return NextResponse.json(
         {
           error: `File exceeds maximum size of ${Math.round(MAX_FILE_SIZE / (1024 * 1024))}MB.`,
@@ -139,7 +153,7 @@ export async function POST(request: Request) {
     }
 
     // Validate file format
-    const extension = file.name.split(".").pop()?.toLowerCase() ?? "";
+    const extension = fileName.split(".").pop()?.toLowerCase() ?? "";
     if (
       !SUPPORTED_FORMATS.includes(
         extension as (typeof SUPPORTED_FORMATS)[number]
@@ -154,11 +168,11 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate client hash format (if provided)
-    if (clientHash && !isValidSha256(clientHash)) {
+    // Validate client hash format
+    if (!isValidSha256(clientHash)) {
       return NextResponse.json(
         {
-          error: "Invalid client hash. Must be a 64-character hex SHA-256 string.",
+          error: "Invalid file hash. Must be a 64-character hex SHA-256 string.",
           code: "INVALID_HASH",
         },
         { status: 400 }
@@ -186,28 +200,43 @@ export async function POST(request: Request) {
     }
 
     // ── STEP 3: SERVER-SIDE HASH VERIFICATION ────────────────────────────
-    // This is the forensic innovation: compute SHA-256 of the received file
-    // and VERIFY it matches the client-provided hash.
-    // Proves the file was not altered in transit.
-    const fileBuffer = await file.arrayBuffer();
+    // Download the file from Supabase Storage (internal, fast) and re-hash
+    // to prove the file was not altered in transit (chain of custody).
+    const adminClient = createAdminClient();
+
+    const { data: fileBlob, error: downloadError } = await adminClient.storage
+      .from("probatio-audio")
+      .download(pendingPath);
+
+    if (downloadError || !fileBlob) {
+      return NextResponse.json(
+        {
+          error: "Failed to access uploaded file. Please try uploading again.",
+          code: "STORAGE_ERROR",
+          detail: downloadError?.message,
+        },
+        { status: 500 }
+      );
+    }
+
+    const fileBuffer = await fileBlob.arrayBuffer();
     const serverHash = await hashBuffer(fileBuffer);
 
-    if (clientHash && serverHash !== clientHash) {
+    if (serverHash !== clientHash) {
+      // Clean up the corrupted upload
+      await adminClient.storage.from("probatio-audio").remove([pendingPath]);
+
       return NextResponse.json(
         {
           error:
             "File integrity check failed. The server-computed hash does not match the client-provided hash. The file may have been altered in transit.",
           code: "HASH_MISMATCH",
-          detail: {
-            clientHash,
-            serverHash,
-          },
+          detail: { clientHash, serverHash },
         },
         { status: 400 }
       );
     }
 
-    // Use server hash as the canonical hash (even if client didn't provide one)
     const fileHash = serverHash;
 
     // ── STEP 4: DEDUP CHECK ──────────────────────────────────────────────
@@ -272,7 +301,6 @@ export async function POST(request: Request) {
     }
 
     // Atomic deduction: WHERE balance >= creditCost prevents race conditions
-    const adminClient = createAdminClient();
     const { data: deductResult, error: deductError } = await adminClient.rpc(
       "deduct_credit_atomic",
       { p_user_id: user.id, p_amount: creditCost }
@@ -307,7 +335,7 @@ export async function POST(request: Request) {
       amount: -creditCost,
       balance_after: credits.balance - creditCost,
       reference_id: null, // Will be updated with analysis_id
-      description: `${mode} analysis: ${title || file.name}`,
+      description: `${mode} analysis: ${title || fileName}`,
     });
 
     // ── STEP 6: GET ACTIVE PIPELINE VERSION ──────────────────────────────
@@ -320,33 +348,30 @@ export async function POST(request: Request) {
     const pipelineVersionId = pipelineVersion?.id ?? null;
     const pipelineVersionTag = pipelineVersion?.version_tag ?? PIPELINE_VERSION;
 
-    // ── STEP 7: UPLOAD TO SUPABASE STORAGE ───────────────────────────────
+    // ── STEP 7: MOVE FILE TO PERMANENT STORAGE PATH ─────────────────────
     const analysisId = crypto.randomUUID();
-    const storagePath = `${user.id}/${analysisId}/original/${file.name}`;
+    const permanentPath = `${user.id}/${analysisId}/original/${fileName}`;
 
-    const { error: uploadError } = await adminClient.storage
+    const { error: moveError } = await adminClient.storage
       .from("probatio-audio")
-      .upload(storagePath, fileBuffer, {
-        contentType: file.type || "audio/mpeg",
-        upsert: false,
-      });
+      .move(pendingPath, permanentPath);
 
-    if (uploadError) {
-      // Refund credit on upload failure
+    if (moveError) {
+      // Refund credit on storage failure
       await adminClient
         .from("credits")
         .update({ balance: credits.balance })
         .eq("user_id", user.id);
 
       return NextResponse.json(
-        { error: "File upload failed.", code: "UPLOAD_FAILED", detail: uploadError.message },
+        { error: "File storage failed.", code: "UPLOAD_FAILED", detail: moveError.message },
         { status: 500 }
       );
     }
 
     const {
       data: { publicUrl },
-    } = adminClient.storage.from("probatio-audio").getPublicUrl(storagePath);
+    } = adminClient.storage.from("probatio-audio").getPublicUrl(permanentPath);
 
     // ── STEP 8: CREATE ANALYSIS ROW ──────────────────────────────────────
     const { error: insertError } = await adminClient.from("analyses").insert({
@@ -355,9 +380,9 @@ export async function POST(request: Request) {
       pipeline_version: pipelineVersionTag,
       mode: mode,
       status: "queued",
-      file_name: title || file.name,
+      file_name: title || fileName,
       file_hash: fileHash,
-      file_size_bytes: file.size,
+      file_size_bytes: fileSize,
       audio_url: publicUrl,
       ...(mode === "clearance" ? { catalog_ids: catalogIds } : {}),
     });
@@ -378,11 +403,11 @@ export async function POST(request: Request) {
     // ── STEP 9: CHAIN OF CUSTODY — FIRST TWO ENTRIES ─────────────────────
     // Entry 1: file_uploaded
     await recordCustody(adminClient, analysisId, "file_uploaded", user.id, {
-      file_name: file.name,
-      file_size_bytes: file.size,
-      mime_type: file.type,
-      storage_path: storagePath,
-      client_hash_provided: !!clientHash,
+      file_name: fileName,
+      file_size_bytes: fileSize,
+      mime_type: contentType,
+      storage_path: permanentPath,
+      client_hash_provided: true,
     }, fileHash, "audio_file");
 
     // Entry 2: hash_computed — proves server verified the client's hash

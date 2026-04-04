@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { cn, formatFileSize } from "@/lib/utils";
 import { SUPPORTED_FORMATS, MAX_FILE_SIZE, CREDIT_COSTS } from "@/lib/constants";
 import { computeFileHash } from "@/lib/analysis/chain-of-custody";
+import { createClient } from "@/lib/supabase/client";
 import { useCreditStore } from "@/stores/credit-store";
 import { useAnalysisStatus } from "@/hooks/use-analysis-status";
 import { HashDisplay } from "./hash-display";
@@ -200,13 +201,14 @@ export function UploadZone({
           );
 
           if (res.ok) {
-            const data = await res.json();
+            const json = await res.json();
+            const check = json.data ?? json;
 
-            if (data.exists) {
+            if (check.exists) {
               setDuplicate({
-                analysisId: data.analysisId,
-                status: data.status,
-                completedAt: data.completedAt ?? null,
+                analysisId: check.analysisId,
+                status: check.status,
+                completedAt: check.completedAt ?? null,
               });
             }
           }
@@ -283,17 +285,39 @@ export function UploadZone({
     setUploadState("uploading");
 
     try {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("client_hash", fileHash);
-      formData.append("mode", analysisMode);
-      if (analysisMode === "clearance" && catalogIds && catalogIds.length > 0) {
-        formData.append("catalog_ids", JSON.stringify(catalogIds));
+      // Step 1: Upload file directly to Supabase Storage
+      // This bypasses Vercel's 4.5MB serverless body-size limit.
+      const supabase = createClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) throw new Error("Session expired. Please sign in again.");
+
+      const pendingPath = `${session.user.id}/pending/${fileHash}/${file.name}`;
+      const { error: storageError } = await supabase.storage
+        .from("probatio-audio")
+        .upload(pendingPath, file, {
+          contentType: file.type || "audio/mpeg",
+          upsert: true,
+        });
+
+      if (storageError) {
+        throw new Error(`Storage upload failed: ${storageError.message}`);
       }
 
+      // Step 2: Send metadata-only request to API (no file in body)
       const res = await fetch("/api/analyze", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          storagePath: pendingPath,
+          fileName: file.name,
+          fileHash,
+          fileSize: file.size,
+          contentType: file.type || "audio/mpeg",
+          mode: analysisMode,
+          ...(analysisMode === "clearance" && catalogIds?.length
+            ? { catalogIds }
+            : {}),
+        }),
       });
 
       if (!res.ok) {
@@ -321,7 +345,7 @@ export function UploadZone({
       setUploadState("ready");
       toast.error(message);
     }
-  }, [file, fileHash, hasCredits, analysisMode, deductCredits, onAnalysisCreated]);
+  }, [file, fileHash, hasCredits, analysisMode, catalogIds, deductCredits, onAnalysisCreated]);
 
   // ── Reset ────────────────────────────────────────────────────────────────
   const handleReset = useCallback(() => {
